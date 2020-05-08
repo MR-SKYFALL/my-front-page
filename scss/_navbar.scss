@@ -1,0 +1,46 @@
+.navbar{
+    position: absolute;
+    top: 0;
+    left: 0;
+
+    display: flex;
+    justify-content: center;
+    align-items: start;
+
+    height: 100vh;
+    width: 70px;
+    background-color: #fff;
+}
+.hamburger{
+    width: 60px;
+    height: 60px;
+    // background-color: red;
+
+
+    
+
+    
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+
+    &__line{
+        width: 65%;
+        background-color: #2B6F71;
+        height: 5px;
+        border-radius: 10px;
+        &--1{
+
+        }
+        &--2{
+            margin-top: 10%;
+            margin-bottom: 10%;
+        }
+        &--3{
+            
+        }
+    }
+
+   
+}

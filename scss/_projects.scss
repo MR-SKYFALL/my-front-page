@@ -1,0 +1,143 @@
+.container {
+
+    display: grid;
+    justify-items: center;
+    align-items: center;
+    justify-content: center;
+    grid-template-columns: repeat(6, 100px);
+    grid-template-rows: repeat(2, calc(200px + var(--my-gap)));
+    gap: var(--my-gap);
+
+}
+
+.card {
+    //perfect spin
+    perspective: 150rem;
+    -moz-perspective: 150rem;
+
+    width: 100%;
+    height: 100%;
+    position: relative;
+
+
+    &--1 {
+        grid-column: 1/3;
+        grid-row: 1/2;
+    }
+
+    &--2 {
+        grid-column: 3/5;
+        grid-row: 1/2;
+    }
+
+    &--3 {
+        grid-column: 5/7;
+        grid-row: 1/2;
+    }
+
+    &--4 {
+        grid-column: 2/4;
+        grid-row: 2/3;
+    }
+
+    &--5 {
+        grid-column: 4/6;
+        grid-row: 2/3;
+    }
+
+    // &:hover &__side-front {
+    //     transform: rotateY(-180deg);
+    // }
+
+    // &:hover &__side-back {
+    //     transform: rotateY(0);
+    // }
+
+    &__side {
+        transition: all .8s ease;
+        backface-visibility: hidden;
+        border-radius: 3px;
+        overflow: hidden;
+
+        &-front {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100%;
+            width: 100%;
+            background-color: rgba($color: #fff, $alpha: 0.6);
+        }
+
+        &-back {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+
+            display: flex;
+            flex-direction: column;
+
+            transform: rotateY(180deg);
+            background-color: rgba($color: #fff, $alpha: 0.6)
+        }
+    }
+
+    //FRONT SIDE STYLING
+    &__info {
+        fill: #F99059;
+        position: absolute;
+        width: 40px;
+        height: 40px;
+        top: 5px;
+        right: 5px;
+        cursor: pointer;
+        // pointer-events: none;
+
+    }
+
+    &__icon {
+        fill: #000;
+        width: 120px;
+        height: 120px;
+    }
+
+    &__title {
+        text-align: center;
+        font-size: 3rem;
+        color: #2B6F71;
+        text-transform: uppercase;
+        font-family: 'Segoe UI';
+    }
+
+    &__link {
+
+        &,
+        &:link,
+        &:visited {
+            text-decoration: none; //! TUU SKONCZYŁES
+        }
+
+    }
+
+    //back side styling
+
+    &__back-icon {
+        fill: #F99059;
+        width: 40px;
+        height: 40px;
+        margin: 4px;
+        cursor: pointer;
+        align-self: flex-end;
+    }
+
+    &__about {
+        font-family: 'Segoe UI';
+        font-size: 2rem;
+        margin: 1rem;
+    }
+
+
+
+}
