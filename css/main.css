@@ -387,8 +387,8 @@ body {
 .hamburger:hover .hamburger__line {
   -webkit-transform: scale(1.1);
           transform: scale(1.1);
-  -webkit-box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.3);
-          box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.3);
+  -webkit-box-shadow: 7px 7px 8px rgba(0, 0, 0, 0.3);
+          box-shadow: 7px 7px 8px rgba(0, 0, 0, 0.3);
 }
 
 .hamburger__checkbox {

@@ -1,7 +1,5 @@
 function close_nav_action(nav_bar) {
-    // document.querySelector(".hamburger__line--1-js").classList.remove("animation-open-hamburger-slice-1");
-    // document.querySelector(".hamburger__line--2-js").classList.remove("animation-open-hamburger-slice-2");
-    // document.querySelector(".hamburger__line--3-js").classList.remove("animation-open-hamburger-slice-3");
+
     document.querySelector(".menu-js").classList.remove("animation-open-menu");
     document.querySelector(".menu-js").classList.add("animation-close-menu");
     document.querySelector(".container").classList.remove("animation-center-cards-after-open-menu");
@@ -12,9 +10,6 @@ function close_nav_action(nav_bar) {
 
 function open_nav_action(nav_bar) {
 
-    // document.querySelector(".hamburger__line--1-js").classList.add("animation-open-hamburger-slice-1");
-    // document.querySelector(".hamburger__line--2-js").classList.add("animation-open-hamburger-slice-2");
-    // document.querySelector(".hamburger__line--3-js").classList.add("animation-open-hamburger-slice-3");
     document.querySelector(".menu-js").classList.remove("animation-close-menu");
     document.querySelector(".menu-js").classList.add("animation-open-menu");
     if (document.querySelector('html').clientWidth > 700) {
