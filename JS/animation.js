@@ -32,8 +32,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
     info_buttons.forEach(element => {
         element.addEventListener("click", function () {
-            this.parentNode.parentNode.getElementsByTagName('div')[0].classList.add("animation-rotate-card-front");
-            this.parentNode.parentNode.getElementsByTagName('div')[1].classList.add("animation-rotate-card-back");
+            this.parentNode.parentNode.querySelector('.front-side-js').classList.add("animation-rotate-card-front");
+            this.parentNode.parentNode.querySelector('.back-side-js').classList.add("animation-rotate-card-back");
         })
     });
 
@@ -42,8 +42,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
     back_buttons.forEach(element => {
         element.addEventListener("click", function () {
-            this.parentNode.parentNode.getElementsByTagName('div')[0].classList.remove("animation-rotate-card-front");
-            this.parentNode.parentNode.getElementsByTagName('div')[1].classList.remove("animation-rotate-card-back");
+            this.parentNode.parentNode.querySelector('.front-side-js').classList.remove("animation-rotate-card-front");
+            this.parentNode.parentNode.querySelector('.back-side-js').classList.remove("animation-rotate-card-back");
         })
     });
 
