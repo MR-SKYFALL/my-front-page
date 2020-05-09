@@ -1,6 +1,19 @@
 :root {
     --my-gap: 60px;
+    --menu-open-width: 400px;
+    --basic-transition-time: .5s;
+
+
 }
+
+// Z-INDEX INFO 
+
+//.card{ z-index:2}
+//.navbar{ z-index:2}
+//.back-all-card{ z-index:1}
+
+// BREAKPOINTS 
+$bp-largest: 84.375em;
 
 *,
 *::before,
@@ -12,18 +25,19 @@
 
 html {
     box-sizing: border-box;
-    font-size: 62.5%; 
+    font-size: 62.5%;
 
 }
+
 body {
     width: 100vw;
-    height: 100vh;
+    height: 100%;
     background-image: url("./../img/architectural-design-architecture-buildings-city-374811.jpg");
     background-size: cover;
-
+    overflow-x: hidden;
     display: flex;
     justify-content: center;
-    align-items:center;
+    align-items: center;
     background-repeat: no-repeat;
 
 }
