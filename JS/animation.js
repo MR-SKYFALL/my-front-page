@@ -1,24 +1,34 @@
-function close_nav_action(hamburger, nav_bar) {
-    nav_bar.classList.remove("animation-open-navbar");
-    document.querySelector(".hamburger__line--1-js").classList.remove("animation-open-hamburger-slice-1");
-    document.querySelector(".hamburger__line--2-js").classList.remove("animation-open-hamburger-slice-2");
-    document.querySelector(".hamburger__line--3-js").classList.remove("animation-open-hamburger-slice-3");
+function close_nav_action(nav_bar) {
+    // document.querySelector(".hamburger__line--1-js").classList.remove("animation-open-hamburger-slice-1");
+    // document.querySelector(".hamburger__line--2-js").classList.remove("animation-open-hamburger-slice-2");
+    // document.querySelector(".hamburger__line--3-js").classList.remove("animation-open-hamburger-slice-3");
     document.querySelector(".menu-js").classList.remove("animation-open-menu");
     document.querySelector(".menu-js").classList.add("animation-close-menu");
     document.querySelector(".container").classList.remove("animation-center-cards-after-open-menu");
-    hamburger.setAttribute("is_nav_open", "no");
+    nav_bar.classList.remove("animate-open-navbar-small-device");
+    nav_bar.classList.remove("animation-open-navbar");
+
 }
 
-function open_nav_action(hamburger, nav_bar) {
-    nav_bar.classList.add("animation-open-navbar");
-    document.querySelector(".hamburger__line--1-js").classList.add("animation-open-hamburger-slice-1");
-    document.querySelector(".hamburger__line--2-js").classList.add("animation-open-hamburger-slice-2");
-    document.querySelector(".hamburger__line--3-js").classList.add("animation-open-hamburger-slice-3");
+function open_nav_action(nav_bar) {
+
+    // document.querySelector(".hamburger__line--1-js").classList.add("animation-open-hamburger-slice-1");
+    // document.querySelector(".hamburger__line--2-js").classList.add("animation-open-hamburger-slice-2");
+    // document.querySelector(".hamburger__line--3-js").classList.add("animation-open-hamburger-slice-3");
     document.querySelector(".menu-js").classList.remove("animation-close-menu");
     document.querySelector(".menu-js").classList.add("animation-open-menu");
-    document.querySelector(".container").classList.add("animation-center-cards-after-open-menu");
-    hamburger.setAttribute("is_nav_open", "yes");
+    if (document.querySelector('html').clientWidth > 700) {
+        document.querySelector(".container").classList.add("animation-center-cards-after-open-menu");
+    }
+    if (document.querySelector('html').clientWidth < 450) {
+        nav_bar.classList.add("animate-open-navbar-small-device");
+    }
+    else {
+        nav_bar.classList.add("animation-open-navbar");
+    }
+
 }
+
 
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -55,7 +65,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
         var hamburger = document.querySelector(".hamburger-js");
         var navbar = document.querySelector(".navbar-js");
-        close_nav_action(hamburger, navbar);
+        close_nav_action(navbar);
 
     })
 
@@ -64,16 +74,18 @@ document.addEventListener('DOMContentLoaded', () => {
     hamburger.addEventListener("click", function () {
 
         var navbar = document.querySelector(".navbar-js");
-        is_nav_open = this.getAttribute("is_nav_open");
-
-        if (is_nav_open == "no") {
-            open_nav_action(this, navbar);
+        var input_checkbox = document.querySelector("#toggle-nav");
+        console.log(input_checkbox.checked);
+        if (!input_checkbox.checked) {
+            open_nav_action(navbar);
         }
         else {
-            close_nav_action(this, navbar);
+            close_nav_action(navbar);
         }
 
 
     })
 
 })
+
+

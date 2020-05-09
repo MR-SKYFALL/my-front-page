@@ -1,19 +1,26 @@
-:root {
-    --my-gap: 60px;
-    --menu-open-width: 400px;
-    --basic-transition-time: .5s;
-
-
-}
-
 // Z-INDEX INFO 
 
 //.card{ z-index:2}
-//.navbar{ z-index:2}
+//.navbar{ z-index:5}
 //.back-all-card{ z-index:1}
 
 // BREAKPOINTS 
-$bp-largest: 84.375em;
+$bp-largest: 84.375em; //1350px
+$bp-large: 65.625em; // 1050px
+$bp-medium: 43.75em; //700px
+$bp-small: 28.125em; // 450px
+
+:root {
+    --my-gap: 60px;
+    --menu-open-width: 400px;
+    --menu-close-width: 70px;
+    --basic-transition-time: .5s;
+
+    @media only screen and (max-width: $bp-medium) {
+        --menu-open-width: 100%;
+    }
+
+}
 
 *,
 *::before,
@@ -30,14 +37,17 @@ html {
 }
 
 body {
-    width: 100vw;
-    height: 100%;
     background-image: url("./../img/architectural-design-architecture-buildings-city-374811.jpg");
     background-size: cover;
-    overflow-x: hidden;
+    overflow: hidden;
     display: flex;
     justify-content: center;
     align-items: center;
     background-repeat: no-repeat;
+    position: relative;
+    // width: 100vw;
 
+    @media only screen and (max-width: $bp-largest) {
+        overflow-y: auto;
+    }
 }

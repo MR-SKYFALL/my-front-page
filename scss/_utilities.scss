@@ -10,23 +10,27 @@
     width: var(--menu-open-width) !important;
 }
 
+.animate-open-navbar-small-device {
+    height: 500px !important;
+}
+
 .animation-center-cards-after-open-menu {
     margin-left: var(--menu-open-width) !important;
 }
 
-.animation-open-hamburger-slice-1 {
-    transform-origin: center right;
-    transform: rotate(-45deg) translateY(-9px);
-}
+// .animation-open-hamburger-slice-1 {
+    //     transform-origin: center right;
+    //     transform: rotate(-45deg) translateY(-9px);
+    // }
 
-.animation-open-hamburger-slice-2 {
-    opacity: 0 !important;
-}
+    // .animation-open-hamburger-slice-2 {
+    //     opacity: 0 !important;
+    // }
 
-.animation-open-hamburger-slice-3 {
-    transform-origin: center right;
-    transform: rotate(45deg) translateY(3px) translateX(-5px);
-}
+    // .animation-open-hamburger-slice-3 {
+    //     transform-origin: center right;
+    //     transform: rotate(45deg) translateY(3px) translateX(-5px);
+    // }
 
 // .animation-open-menu {
 //     opacity: 1 !important;

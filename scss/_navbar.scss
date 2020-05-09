@@ -8,27 +8,75 @@
     align-items: center;
     flex-direction: column;
 
-    height: 100vh;
-    width: 70px;
+    height: 100%;
+    width: var(--menu-close-width);
     background-color: #fff;
-    z-index: 3;
+    z-index: 5;
+    // overflow: hidden;
 
     transition: all var(--basic-transition-time);
 
     @media only screen and (max-width: $bp-largest) {
         height: 100%;
     }
+
+    @media only screen and (max-width: $bp-small) {
+
+        height: var(--menu-close-width);
+        width: 100vw;
+    }
+
+
 }
 
 .hamburger {
     width: 60px;
     height: 60px;
-
+    position: absolute;
+    top: 4px;
+    left: 4px;
 
     display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: column;
+    cursor: pointer;
+
+    @media only screen and (max-width: $bp-small) {
+
+        position: absolute;
+        transform: translate(-50%, 0%);
+        top: 4px;
+        left: 50%;
+    }
+
+    &:hover &__line {
+        // transition: scale .2s;
+        transform: scale(1.1);
+        box-shadow: 5px 5px 10px rgba($color: #000000, $alpha: .3);
+        // opacity: 1;
+
+    }
+
+    &__checkbox {
+        display: none;
+    }
+
+    &__checkbox:checked~label>div>&__line--1 {
+        transform-origin: center right;
+        transform: rotate(-45deg) translateY(-9px);
+    }
+
+    &__checkbox:checked~label>div>&__line--2 {
+        opacity: 0 !important;
+
+    }
+
+    &__checkbox:checked~label>div>&__line--3 {
+        transform-origin: center right;
+        transform: rotate(45deg) translateY(3px) translateX(-5px);
+    }
+
 
     &__line {
         width: 65%;
@@ -61,6 +109,16 @@
     // transform: translateX(-10rem);
     backface-visibility: hidden;
 
+    @media only screen and (max-width: $bp-largest) {
+        margin: 6rem 0;
+    }
+
+    @media only screen and (max-width: $bp-small) {
+
+        margin-top: 50px;
+
+    }
+
 
     &__item {
 
@@ -81,6 +139,10 @@
 
             }
         }
+    }
+
+    &__line:first-of-type {
+        margin-top: 4rem;
     }
 
     &__line {
