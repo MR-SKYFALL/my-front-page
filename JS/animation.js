@@ -10,6 +10,7 @@ function onMouseUpdate(e) {
     x = e.pageX;
     y = e.pageY;
     console.log(x, y);
+
 }
 
 function getMouseX() {
@@ -29,25 +30,30 @@ function close_nav_action(nav_bar) {
     nav_bar.classList.remove("animation-open-navbar");
 
 }
-// window.onmousemove = logMouseMove;
-// function logMouseMove(e) {
-//     e = event || window.event;
-//     mousePos = { x: e.clientX, y: e.clientY };
-//     return mousePos
-// }
+
+function check_can_pacman_animate(card__link_pacman) {
+    let mouse_pos_x = getMouseX();
+    let mouse_pos_y = getMouseY();
+    let pos_card_pacman_x = getPosition(card__link_pacman).x;
+    let pos_card_pacman_y = getPosition(card__link_pacman).y;
+    let width_card_pacman = card__link_pacman.clientWidth;
+    let height_card_pacman = card__link_pacman.clientHeight;
+    if (mouse_pos_x > pos_card_pacman_x &&
+        mouse_pos_x < (pos_card_pacman_x + width_card_pacman) &&
+        mouse_pos_y > pos_card_pacman_y &&
+        mouse_pos_y < (pos_card_pacman_y + height_card_pacman)) {
+        return true;
+    }
+    else {
+        return false;
+    }
+}
+
 function task(i, pacman_title, card__link_pacman) {
     setTimeout(function () {
-        let mouse_pos_x = getMouseX();
-        let mouse_pos_y = getMouseY();
-        let pos_card_pacman_x = getPosition(card__link_pacman).x;
-        let pos_card_pacman_y = getPosition(card__link_pacman).y;
-        let width_card_pacman = card__link_pacman.clientWidth;
-        let height_card_pacman = card__link_pacman.clientHeight;
 
-        if (mouse_pos_x > pos_card_pacman_x &&
-            mouse_pos_x < (pos_card_pacman_x + width_card_pacman) &&
-            mouse_pos_y > pos_card_pacman_y &&
-            mouse_pos_y < (pos_card_pacman_y + height_card_pacman)) {
+
+        if (check_can_pacman_animate(card__link_pacman)) {
             pacman_title.style = `background-image: linear-gradient(90deg, rgba(204, 59, 59, 0) ${i}%, rgb(59, 15, 218) ${i + 1}%);`;
             for_break1 = false;
         }
@@ -179,10 +185,16 @@ document.addEventListener('DOMContentLoaded', () => {
         }, 1000);
 
         setInterval(() => {
-            pacman_title.style = `background-image: linear-gradient(90deg, rgba(204, 59, 59, 0) 0%, rgb(59, 15, 218) 1%);`;
-        }, 1500);
+            // pacman_title.style = `background-image: linear-gradient(90deg, rgba(204, 59, 59, 0) 0%, rgb(59, 15, 218) 1%);`;
+        }, 3000);
 
     })
+
+    card__link_pacman.addEventListener("mouseleave", function () {
+        pacman_title.style = `background-image: linear-gradient(90deg, rgba(204, 59, 59, 0) 0%, rgb(59, 15, 218) 1%);`;
+    })
+
+
 
 
 
