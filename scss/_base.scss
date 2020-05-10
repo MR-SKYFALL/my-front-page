@@ -16,6 +16,10 @@ $bp-small: 28.125em; // 450px
     --menu-close-width: 70px;
     --basic-transition-time: .5s;
 
+    --pacman-eat-1: 0%;
+    --pacman-eat-2: 1%;
+
+
     @media only screen and (max-width: $bp-medium) {
         --menu-open-width: 100%;
     }

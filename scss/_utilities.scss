@@ -30,6 +30,41 @@
     animation: animation-keyframes-close-menu var(--basic-transition-time);
 }
 
+@keyframes animation-pacman-title {
+    0% {
+        --pacman-eat-1: 0%;
+        --pacman-eat-1: 1%;
+    }
+
+    100% {
+        --pacman-eat-1: 99%;
+        --pacman-eat-1: 100%;
+    }
+}
+
+
+@keyframes animation-pacman {
+    0% {}
+
+    20% {
+
+        transform: scale(0.5) translateX(-180px);
+    }
+
+    35% {
+        transform: scale(0.5) translateX(-180px) translateY(180px);
+    }
+
+    95% {
+        transform: scale(0.85) translateX(90px) translateY(100px);
+    }
+
+    100% {
+        transform: scale(0.85) translateX(90px) translateY(100px);
+        // transition-delay: 2s;
+    }
+}
+
 @keyframes animation-keyframes-open-menu {
     0% {
         opacity: 0;

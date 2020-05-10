@@ -3,6 +3,8 @@
   --menu-open-width: 400px;
   --menu-close-width: 70px;
   --basic-transition-time: .5s;
+  --pacman-eat-1: 0%;
+  --pacman-eat-2: 1%;
 }
 
 @media only screen and (max-width: 43.75em) {
@@ -288,11 +290,10 @@ body {
   z-index: 2;
 }
 
-.card__icon--1:hover {
-  -webkit-animation: animation-card-icon-up-down 1s;
-          animation: animation-card-icon-up-down 1s;
-  -webkit-animation-iteration-count: infinite;
-          animation-iteration-count: infinite;
+.card__icon--1 {
+  background-image: url("../img/pacman-foto.png");
+  background-size: cover;
+  height: 130px;
 }
 
 .card__icon--2:hover {
@@ -301,8 +302,7 @@ body {
 }
 
 .card__icon--3:hover ~ .card__icon--3-strip-1 {
-  background-image: -webkit-gradient(linear, left top, right top, from(#016907), to(white));
-  background-image: linear-gradient(to right, #016907, white);
+  background-color: #61f4de;
   width: 60px;
 }
 
@@ -319,8 +319,7 @@ body {
 }
 
 .card__icon--3:hover ~ .card__icon--3-strip-2 {
-  background-image: -webkit-gradient(linear, left top, right top, from(#0bbfec), to(white));
-  background-image: linear-gradient(to right, #0bbfec, white);
+  background-color: #68b6ef;
   width: 60px;
 }
 
@@ -329,7 +328,7 @@ body {
   top: 45px;
   right: 30px;
   width: 0px;
-  height: 10px;
+  height: 11px;
   z-index: 1;
   -webkit-transition: all .8s;
   transition: all .8s;
@@ -337,8 +336,7 @@ body {
 }
 
 .card__icon--3:hover ~ .card__icon--3-strip-3 {
-  background-image: -webkit-gradient(linear, left top, right top, from(#F99059), to(white));
-  background-image: linear-gradient(to right, #F99059, white);
+  background-color: #6e78ff;
   width: 60px;
 }
 
@@ -365,6 +363,20 @@ body {
 .card__link, .card__link:link, .card__link:visited {
   text-decoration: none;
   position: relative;
+}
+
+.card__link--pacman:hover .card__icon--1 {
+  background-image: url("../img/pacman-foto.gif");
+  -webkit-animation: animation-pacman 3s;
+          animation: animation-pacman 3s;
+}
+
+.card__link--pacman .card__title {
+  display: inline-block;
+  background-image: -webkit-gradient(linear, left top, right top, from(rgba(204, 59, 59, 0)), to(#3b0fda));
+  background-image: linear-gradient(90deg, rgba(204, 59, 59, 0) var(--pacman-eat-1), #3b0fda var(--pacman-eat-2));
+  -webkit-background-clip: text;
+  color: transparent;
 }
 
 .card__back-icon {
@@ -637,6 +649,70 @@ body {
 .animation-close-menu {
   -webkit-animation: animation-keyframes-close-menu var(--basic-transition-time);
           animation: animation-keyframes-close-menu var(--basic-transition-time);
+}
+
+@-webkit-keyframes animation-pacman-title {
+  0% {
+    --pacman-eat-1: 0%;
+    --pacman-eat-1: 1%;
+  }
+  100% {
+    --pacman-eat-1: 99%;
+    --pacman-eat-1: 100%;
+  }
+}
+
+@keyframes animation-pacman-title {
+  0% {
+    --pacman-eat-1: 0%;
+    --pacman-eat-1: 1%;
+  }
+  100% {
+    --pacman-eat-1: 99%;
+    --pacman-eat-1: 100%;
+  }
+}
+
+@-webkit-keyframes animation-pacman {
+  0% {
+  }
+  20% {
+    -webkit-transform: scale(0.5) translateX(-180px);
+            transform: scale(0.5) translateX(-180px);
+  }
+  35% {
+    -webkit-transform: scale(0.5) translateX(-180px) translateY(180px);
+            transform: scale(0.5) translateX(-180px) translateY(180px);
+  }
+  95% {
+    -webkit-transform: scale(0.85) translateX(90px) translateY(100px);
+            transform: scale(0.85) translateX(90px) translateY(100px);
+  }
+  100% {
+    -webkit-transform: scale(0.85) translateX(90px) translateY(100px);
+            transform: scale(0.85) translateX(90px) translateY(100px);
+  }
+}
+
+@keyframes animation-pacman {
+  0% {
+  }
+  20% {
+    -webkit-transform: scale(0.5) translateX(-180px);
+            transform: scale(0.5) translateX(-180px);
+  }
+  35% {
+    -webkit-transform: scale(0.5) translateX(-180px) translateY(180px);
+            transform: scale(0.5) translateX(-180px) translateY(180px);
+  }
+  95% {
+    -webkit-transform: scale(0.85) translateX(90px) translateY(100px);
+            transform: scale(0.85) translateX(90px) translateY(100px);
+  }
+  100% {
+    -webkit-transform: scale(0.85) translateX(90px) translateY(100px);
+            transform: scale(0.85) translateX(90px) translateY(100px);
+  }
 }
 
 @-webkit-keyframes animation-keyframes-open-menu {
