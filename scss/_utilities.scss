@@ -30,18 +30,43 @@
     animation: animation-keyframes-close-menu var(--basic-transition-time);
 }
 
-@keyframes animation-pacman-title {
-    0% {
-        --pacman-eat-1: 0%;
-        --pacman-eat-1: 1%;
+@keyframes animation-ball-even {
+    20% {
+        transform: scale(0.7) translateY(-40px) translateX(140px);
+    }
+
+    30% {
+        transform: scale(0.7) translateY(-120px) translateX(50px);
+    }
+
+    50% {
+        transform: scale(0.7) translateY(-50px) translateX(-110px);
+    }
+
+    70% {
+        transform: scale(0.7) translateY(160px) translateX(30px);
+    }
+
+    80% {
+        transform: scale(0.7) translateY(100px) translateX(130px);
     }
 
     100% {
-        --pacman-eat-1: 99%;
-        --pacman-eat-1: 100%;
+        transform: translateY(0px) translateX(0px);
     }
 }
 
+@keyframes animation-ball-odd {
+
+
+    50% {
+        transform: rotate(360deg) scale(0.7) translateY(240px) translateX(0px)
+    }
+
+    100% {
+        transform: rotate(720deg) scale(0.7) translateY(0px) translateX(0px)
+    }
+}
 
 @keyframes animation-pacman {
     0% {}

@@ -1,7 +1,6 @@
 var x = null;
 var y = null;
 
-var for_break1 = false;
 
 document.addEventListener('mousemove', onMouseUpdate, false);
 document.addEventListener('mouseenter', onMouseUpdate, false);
@@ -9,7 +8,7 @@ document.addEventListener('mouseenter', onMouseUpdate, false);
 function onMouseUpdate(e) {
     x = e.pageX;
     y = e.pageY;
-    console.log(x, y);
+    // console.log(x, y);
 
 }
 
@@ -31,39 +30,6 @@ function close_nav_action(nav_bar) {
 
 }
 
-function check_can_pacman_animate(card__link_pacman) {
-    let mouse_pos_x = getMouseX();
-    let mouse_pos_y = getMouseY();
-    let pos_card_pacman_x = getPosition(card__link_pacman).x;
-    let pos_card_pacman_y = getPosition(card__link_pacman).y;
-    let width_card_pacman = card__link_pacman.clientWidth;
-    let height_card_pacman = card__link_pacman.clientHeight;
-    if (mouse_pos_x > pos_card_pacman_x &&
-        mouse_pos_x < (pos_card_pacman_x + width_card_pacman) &&
-        mouse_pos_y > pos_card_pacman_y &&
-        mouse_pos_y < (pos_card_pacman_y + height_card_pacman)) {
-        return true;
-    }
-    else {
-        return false;
-    }
-}
-
-function task(i, pacman_title, card__link_pacman) {
-    setTimeout(function () {
-
-
-        if (check_can_pacman_animate(card__link_pacman)) {
-            pacman_title.style = `background-image: linear-gradient(90deg, rgba(204, 59, 59, 0) ${i}%, rgb(59, 15, 218) ${i + 1}%);`;
-            for_break1 = false;
-        }
-        else {
-            pacman_title.style = `background-image: linear-gradient(90deg, rgba(204, 59, 59, 0) 0%, rgb(59, 15, 218) 1%);`;
-            for_break1 = true;
-        }
-
-    }, 20 * i);
-}
 
 function getPosition(el) {
     var xPos = 0;
@@ -110,7 +76,7 @@ function open_nav_action(nav_bar) {
 
 document.addEventListener('DOMContentLoaded', () => {
 
-    var info_buttons = document.querySelectorAll(".info-js"); // obsługa kliku przycisku info na karcie
+    var info_buttons = document.querySelectorAll(".info-js"); // action for info button on the card
 
     info_buttons.forEach(element => {
         element.addEventListener("click", function () {
@@ -120,7 +86,7 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
 
-    var back_buttons = document.querySelectorAll(".back-js"); // obsługa kliku przycisku back na kafelku
+    var back_buttons = document.querySelectorAll(".back-js"); // action for back button on the back of card
 
     back_buttons.forEach(element => {
         element.addEventListener("click", function () {
@@ -130,7 +96,7 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
 
-    var back_all_card_and_nav_div = document.querySelector(".back-all-card-js"); // obsługa kliku na tło a nastepnie zamkniecie navbaru i kart
+    var back_all_card_and_nav_div = document.querySelector(".back-all-card-js"); // action for clicking on the background and then closing the navbar and tabs
 
     back_all_card_and_nav_div.addEventListener("click", function () {
         var all_card_front = document.querySelectorAll(".front-side-js");
@@ -146,7 +112,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     })
 
-    var hamburger = document.querySelector(".hamburger-js"); // obsluga zamykania/otwierania navbaru
+    var hamburger = document.querySelector(".hamburger-js"); // action for open/close navbar
 
     hamburger.addEventListener("click", function () {
 
@@ -163,39 +129,65 @@ document.addEventListener('DOMContentLoaded', () => {
 
     })
 
-
-
+    // PACMAN EATING ACTION
     var pacman_photo = document.querySelector(".card__icon-js");
     let pacman_title = document.querySelector(".card__title-js");
     let card__link_pacman = document.querySelector(".card__link--pacman");
-    console.log(getPosition(card__link_pacman).x, getPosition(card__link_pacman).y);
+    var interval_animation;
+    var start_delay = -90; // higher value gives more delay
+    var animation_simple_tik_counter = start_delay;
+    var animation_speed = 14 // higher value gives more speed
+
+
     pacman_photo.addEventListener("webkitAnimationStart", function () {
-        console.log("test");
-        // root.style.setProperty('--pacman-eat-1', e.clientX + "px");
-        setTimeout(() => {
-            for (let i = 0; i < 100; i++) {
-                // pacman_title.style = `background-image: linear-gradient(90deg, rgba(204, 59, 59, 0) ${i}%, rgb(59, 15, 218) ${i + 1}%);`;
-                task(i, pacman_title, card__link_pacman)
-                // if (for_break1 === true) {
-                //     i = 0;
-                // }
-
-
+        animation_simple_tik = start_delay;
+        interval_animation = setInterval(() => {
+            if (animation_simple_tik_counter >= 0) {
+                pacman_title.style = `background-image: linear-gradient(90deg, rgba(204, 59, 59, 0) ${animation_simple_tik_counter}%, rgb(43, 111, 113) ${animation_simple_tik_counter + 1}%);`;
             }
-        }, 1000);
+            animation_simple_tik_counter++;
 
-        setInterval(() => {
-            // pacman_title.style = `background-image: linear-gradient(90deg, rgba(204, 59, 59, 0) 0%, rgb(59, 15, 218) 1%);`;
-        }, 3000);
-
+        }, animation_speed);
     })
 
     card__link_pacman.addEventListener("mouseleave", function () {
-        pacman_title.style = `background-image: linear-gradient(90deg, rgba(204, 59, 59, 0) 0%, rgb(59, 15, 218) 1%);`;
+        // console.log("left");
+        clearInterval(interval_animation);
+        animation_simple_tik_counter = start_delay;
+        pacman_title.style = `background-image: linear-gradient(90deg, rgba(204, 59, 59, 0) 0%, rgb(43, 111, 113) 1%);`;
+        console.log(animation_simple_tik_counter);
     })
 
+    //BALL ODD EVEN HOVER
+    var ball_link = document.querySelector(".card__link--ball-js");
+    let ball_icon = ball_link.querySelector(".card__icon--4")
+    // ball_link.addEventListener("mouseover", function () {
 
+    //     let ball_icon = this.querySelector(".card__icon--4")
+    //     if (ball_icon.getAttribute("type_animation") === "odd") {
+    //         ball_icon.style = `animation: animation-ball-odd 2s;animation-timing-function: linear;`;
+    //         ball_icon.setAttribute("type_animation", "even");
 
+    //     }
+    //     else {
+    //         ball_icon.style = `animation: animation-ball-even 2s;animation-timing-function: linear;`;
+    //         ball_icon.setAttribute("type_animation", "odd");
+    //     }
+    // })
+
+    $(".card__link--ball-js").hover(function () {
+        if ($(".card__icon--4").attr("type_animation") == "odd") {
+            $(ball_icon).css("animation", "animation-ball-even 2s");
+            $(ball_icon).css("animation-timing-function", "linear");
+            $(".card__icon--4").attr("type_animation", "even");
+        }
+        else {
+            $(ball_icon).css("animation", "animation-ball-odd 2s");
+            $(ball_icon).css("animation-timing-function", "linear");
+            $(".card__icon--4").attr("type_animation", "odd");
+        }
+
+    });
 
 
 })
