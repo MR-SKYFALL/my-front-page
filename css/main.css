@@ -156,6 +156,48 @@ body {
   grid-row: 2/3;
 }
 
+.card__printing-paper {
+  opacity: 0;
+  position: absolute;
+  background-color: #fff;
+  width: 60px;
+  height: 100px;
+  top: -70px;
+  left: 28px;
+  padding-top: 10px;
+}
+
+.card__printing-paper div {
+  font-family: 'Segoe UI';
+  font-weight: bold;
+  color: #000;
+  text-align: center;
+  font-size: 15px;
+  opacity: 1;
+  text-transform: uppercase;
+}
+
+.card__printer-cover {
+  position: absolute;
+  background-color: #000;
+  height: 38px;
+  width: 80px;
+  top: 39px;
+  left: 20px;
+  z-index: 10;
+}
+
+.card__printer-led {
+  position: absolute;
+  top: 45px;
+  left: 94px;
+  border-radius: 50%;
+  background-color: #003cff;
+  height: 10px;
+  width: 10px;
+  z-index: 11;
+}
+
 @media only screen and (max-width: 84.375em) {
   .card--3 {
     -ms-grid-column: 1;
@@ -382,6 +424,41 @@ body {
 .card__link--ball:hover .card__icon--4 {
   -webkit-animation-timing-function: linear;
           animation-timing-function: linear;
+}
+
+.card__link--printer:hover .card__printing-paper {
+  -webkit-animation: animation-printer-card 5s forwards;
+          animation: animation-printer-card 5s forwards;
+  -webkit-transition: all 5s;
+  transition: all 5s;
+  -webkit-transform: translateY(160px);
+          transform: translateY(160px);
+}
+
+.card__link--printer:hover .card__printing-paper .line-1 {
+  -webkit-animation: animation-printer-text-line-1 5s;
+          animation: animation-printer-text-line-1 5s;
+}
+
+.card__link--printer:hover .card__printing-paper .line-2 {
+  -webkit-animation: animation-printer-text-line-2 5s;
+          animation: animation-printer-text-line-2 5s;
+}
+
+.card__link--printer:hover .card__printing-paper .line-3 {
+  -webkit-animation: animation-printer-text-line-3 5s;
+          animation: animation-printer-text-line-3 5s;
+}
+
+.card__link--printer:hover .card__printing-paper .line-4 {
+  -webkit-animation: animation-printer-text-line-4 5s;
+          animation: animation-printer-text-line-4 5s;
+}
+
+.card__link--printer:hover .card__printer-led {
+  background-color: #2fff40;
+  -webkit-animation: animation-printer-led 5s;
+          animation: animation-printer-led 5s;
 }
 
 .card__back-icon {
@@ -654,6 +731,216 @@ body {
 .animation-close-menu {
   -webkit-animation: animation-keyframes-close-menu var(--basic-transition-time);
           animation: animation-keyframes-close-menu var(--basic-transition-time);
+}
+
+@-webkit-keyframes animation-printer-card {
+  0% {
+    opacity: 0;
+  }
+  20% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes animation-printer-card {
+  0% {
+    opacity: 0;
+  }
+  20% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@-webkit-keyframes animation-printer-text-line-1 {
+  0% {
+    opacity: 0;
+  }
+  39% {
+    opacity: 0;
+  }
+  40% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes animation-printer-text-line-1 {
+  0% {
+    opacity: 0;
+  }
+  39% {
+    opacity: 0;
+  }
+  40% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@-webkit-keyframes animation-printer-text-line-2 {
+  0% {
+    opacity: 0;
+  }
+  29% {
+    opacity: 0;
+  }
+  30% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes animation-printer-text-line-2 {
+  0% {
+    opacity: 0;
+  }
+  29% {
+    opacity: 0;
+  }
+  30% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@-webkit-keyframes animation-printer-text-line-3 {
+  0% {
+    opacity: 0;
+  }
+  24% {
+    opacity: 0;
+  }
+  25% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes animation-printer-text-line-3 {
+  0% {
+    opacity: 0;
+  }
+  24% {
+    opacity: 0;
+  }
+  25% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@-webkit-keyframes animation-printer-text-line-4 {
+  0% {
+    opacity: 0;
+  }
+  19% {
+    opacity: 0;
+  }
+  20% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes animation-printer-text-line-4 {
+  0% {
+    opacity: 0;
+  }
+  19% {
+    opacity: 0;
+  }
+  20% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@-webkit-keyframes animation-printer-led {
+  0% {
+    opacity: 0;
+  }
+  10% {
+    opacity: 1;
+  }
+  20% {
+    opacity: 0;
+  }
+  30% {
+    opacity: 1;
+  }
+  40% {
+    opacity: 0;
+  }
+  50% {
+    opacity: 1;
+  }
+  60% {
+    opacity: 0;
+  }
+  70% {
+    opacity: 1;
+  }
+  80% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes animation-printer-led {
+  0% {
+    opacity: 0;
+  }
+  10% {
+    opacity: 1;
+  }
+  20% {
+    opacity: 0;
+  }
+  30% {
+    opacity: 1;
+  }
+  40% {
+    opacity: 0;
+  }
+  50% {
+    opacity: 1;
+  }
+  60% {
+    opacity: 0;
+  }
+  70% {
+    opacity: 1;
+  }
+  80% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
 }
 
 @-webkit-keyframes animation-ball-even {

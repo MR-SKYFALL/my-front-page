@@ -30,6 +30,102 @@
     animation: animation-keyframes-close-menu var(--basic-transition-time);
 }
 
+@keyframes animation-printer-card {
+    0%{
+        opacity: 0;
+    }
+    20%{opacity: 1;}
+    100%{opacity: 1;
+        
+    }
+}
+
+@keyframes animation-printer-text-line-1 {
+    0% {
+        opacity: 0;
+    }
+
+    39% {
+        opacity: 0;
+    }
+
+    40% {
+        opacity: 1;
+    }
+
+    100% {
+        opacity: 1;
+    }
+}
+
+@keyframes animation-printer-text-line-2 {
+    0% {
+        opacity: 0;
+    }
+
+    29% {
+        opacity: 0;
+    }
+
+    30% {
+        opacity: 1;
+    }
+
+    100% {
+        opacity: 1;
+    }
+}
+
+@keyframes animation-printer-text-line-3 {
+    0% {
+        opacity: 0;
+    }
+
+    24% {
+        opacity: 0;
+    }
+
+    25% {
+        opacity: 1;
+    }
+
+    100% {
+        opacity: 1;
+    }
+}
+
+@keyframes animation-printer-text-line-4 {
+    0% {
+        opacity: 0;
+    }
+
+    19% {
+        opacity: 0;
+    }
+
+    20% {
+        opacity: 1;
+    }
+
+    100% {
+        opacity: 1;
+    }
+}
+
+@keyframes animation-printer-led {
+    0% {opacity: 0;}
+    10%{opacity: 1;}
+    20%{opacity: 0;}
+    30%{opacity: 1;}
+    40%{opacity: 0;}
+    50%{opacity: 1;}
+    60%{opacity: 0;}
+    70%{opacity: 1;}
+    80%{opacity: 0;}
+    // 90%{opacity: 1;}
+    100%{opacity: 1;}
+}
+
 @keyframes animation-ball-even {
     20% {
         transform: scale(0.7) translateY(-40px) translateX(140px);

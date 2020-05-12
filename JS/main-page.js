@@ -2,9 +2,6 @@ var x = null;
 var y = null;
 
 
-document.addEventListener('mousemove', onMouseUpdate, false);
-document.addEventListener('mouseenter', onMouseUpdate, false);
-
 function onMouseUpdate(e) {
     x = e.pageX;
     y = e.pageY;
@@ -20,15 +17,7 @@ function getMouseY() {
     return y;
 }
 
-function close_nav_action(nav_bar) {
 
-    document.querySelector(".menu-js").classList.remove("animation-open-menu");
-    document.querySelector(".menu-js").classList.add("animation-close-menu");
-    document.querySelector(".container").classList.remove("animation-center-cards-after-open-menu");
-    nav_bar.classList.remove("animate-open-navbar-small-device");
-    nav_bar.classList.remove("animation-open-navbar");
-
-}
 
 
 function getPosition(el) {
@@ -37,14 +26,12 @@ function getPosition(el) {
 
     while (el) {
         if (el.tagName == "BODY") {
-            // deal with browser quirks with body/window/document and page scroll
             var xScroll = el.scrollLeft || document.documentElement.scrollLeft;
             var yScroll = el.scrollTop || document.documentElement.scrollTop;
 
             xPos += (el.offsetLeft - xScroll + el.clientLeft);
             yPos += (el.offsetTop - yScroll + el.clientTop);
         } else {
-            // for all other non-BODY elements
             xPos += (el.offsetLeft - el.scrollLeft + el.clientLeft);
             yPos += (el.offsetTop - el.scrollTop + el.clientTop);
         }
@@ -60,6 +47,7 @@ function open_nav_action(nav_bar) {
 
     document.querySelector(".menu-js").classList.remove("animation-close-menu");
     document.querySelector(".menu-js").classList.add("animation-open-menu");
+
     if (document.querySelector('html').clientWidth > 700) {
         document.querySelector(".container").classList.add("animation-center-cards-after-open-menu");
     }
@@ -71,7 +59,16 @@ function open_nav_action(nav_bar) {
     }
 
 }
+function close_nav_action(nav_bar) {
 
+    document.querySelector(".menu-js").classList.remove("animation-open-menu");
+    document.querySelector(".menu-js").classList.add("animation-close-menu");
+    document.querySelector(".container").classList.remove("animation-center-cards-after-open-menu");
+    nav_bar.classList.remove("animate-open-navbar-small-device");
+    nav_bar.classList.remove("animation-open-navbar");
+    // var input_checkbox = document.querySelector("#toggle-nav");
+    // input_checkbox.checked = false;
+}
 
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -96,18 +93,20 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
 
-    var back_all_card_and_nav_div = document.querySelector(".back-all-card-js"); // action for clicking on the background and then closing the navbar and tabs
+    var back_all_card_and_nav_div = document.querySelector(".back-all-card-js"); // action for clicking on the background and then closing the navbar and cards
 
     back_all_card_and_nav_div.addEventListener("click", function () {
         var all_card_front = document.querySelectorAll(".front-side-js");
 
         all_card_front.forEach(card_front => {
-            card_front.parentNode.getElementsByTagName('div')[0].classList.remove("animation-rotate-card-front");
-            card_front.parentNode.getElementsByTagName('div')[1].classList.remove("animation-rotate-card-back");
+            card_front.parentNode.querySelector('.front-side-js').classList.remove("animation-rotate-card-front");
+            card_front.parentNode.querySelector('.back-side-js').classList.remove("animation-rotate-card-back");
         });
 
-        var hamburger = document.querySelector(".hamburger-js");
+        // var hamburger = document.querySelector(".hamburger-js");
         var navbar = document.querySelector(".navbar-js");
+        var input_checkbox = document.querySelector("#toggle-nav");
+        input_checkbox.checked = false;
         close_nav_action(navbar);
 
     })
@@ -161,24 +160,10 @@ document.addEventListener('DOMContentLoaded', () => {
     //BALL ODD EVEN HOVER
     var ball_link = document.querySelector(".card__link--ball-js");
     let ball_icon = ball_link.querySelector(".card__icon--4")
-    // ball_link.addEventListener("mouseover", function () {
-
-    //     let ball_icon = this.querySelector(".card__icon--4")
-    //     if (ball_icon.getAttribute("type_animation") === "odd") {
-    //         ball_icon.style = `animation: animation-ball-odd 2s;animation-timing-function: linear;`;
-    //         ball_icon.setAttribute("type_animation", "even");
-
-    //     }
-    //     else {
-    //         ball_icon.style = `animation: animation-ball-even 2s;animation-timing-function: linear;`;
-    //         ball_icon.setAttribute("type_animation", "odd");
-    //     }
-    // })
-
     $(".card__link--ball-js").hover(function () {
         if ($(".card__icon--4").attr("type_animation") == "odd") {
-            $(ball_icon).css("animation", "animation-ball-even 2s");
-            $(ball_icon).css("animation-timing-function", "linear");
+            $(".card__icon--4").css("animation", "animation-ball-even 2s");
+            $(".card__icon--4").css("animation-timing-function", "linear");
             $(".card__icon--4").attr("type_animation", "even");
         }
         else {
