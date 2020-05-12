@@ -18,8 +18,6 @@ function getMouseY() {
 }
 
 
-
-
 function getPosition(el) {
     var xPos = 0;
     var yPos = 0;
@@ -66,8 +64,7 @@ function close_nav_action(nav_bar) {
     document.querySelector(".container").classList.remove("animation-center-cards-after-open-menu");
     nav_bar.classList.remove("animate-open-navbar-small-device");
     nav_bar.classList.remove("animation-open-navbar");
-    // var input_checkbox = document.querySelector("#toggle-nav");
-    // input_checkbox.checked = false;
+
 }
 
 
@@ -103,7 +100,6 @@ document.addEventListener('DOMContentLoaded', () => {
             card_front.parentNode.querySelector('.back-side-js').classList.remove("animation-rotate-card-back");
         });
 
-        // var hamburger = document.querySelector(".hamburger-js");
         var navbar = document.querySelector(".navbar-js");
         var input_checkbox = document.querySelector("#toggle-nav");
         input_checkbox.checked = false;
@@ -150,7 +146,6 @@ document.addEventListener('DOMContentLoaded', () => {
     })
 
     card__link_pacman.addEventListener("mouseleave", function () {
-        // console.log("left");
         clearInterval(interval_animation);
         animation_simple_tik_counter = start_delay;
         pacman_title.style = `background-image: linear-gradient(90deg, rgba(204, 59, 59, 0) 0%, rgb(43, 111, 113) 1%);`;
