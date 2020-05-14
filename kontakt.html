@@ -41,14 +41,57 @@
         </div>
     </nav>
 
-    
-    <div class="container">
-        <div class="contact-element">
-            
+
+    <div class="contact">
+        <div class="contact__front contact__side contact__front-js ">
+            <h1 class="contact__header">Kontakt</h1>
+            <div class="contact__info">
+                <p>Imię i Nazwisko: Dawid Matras</p>
+                <p>E-mail: <a class="email" href="mailto:dawid.matras75@gmail.com">dawid.matras75@gmail.com</a></p>
+                <p>GitHub: <a class="github" target="_blank"
+                        href="https://github.com/MR-SKYFALL?tab=repositories">https://github.com/MR-SKYFALL</a> </p>
+            </div>
+            <div class="contact__btn contact__btn-js">Napisz do mnie</div>
+            <input type="checkbox" class="contact__switch">
+        </div>
+        <div class="contact__back contact__side contact__back-js ">
+            <h1 class="contact__header-back">Napisz do mnie</h1>
+            <svg class="contact__back-icon contact__back-icon-js">
+                <use xlink:href="img/sprite.svg#icon-back"></use>
+            </svg>
+            <form class="form" action="">
+                <div class="form__your-name-surname">
+                    <label for="name-surname">
+                        <svg class="form__user-icon">
+                            <use xlink:href="img/sprite.svg#icon-user-tie"></use>
+                        </svg>
+                    </label>
+                    <input id="name-surname" class="form__input-name-surname" placeholder="Twoje Imię i Nazwisko" type="text">
+                    
+                </div>
+                <div class="form__your-email">
+                    <label for="input-email">
+                        <svg class="form__email-icon">
+                            <use xlink:href="img/sprite.svg#icon-mail"></use>
+                        </svg>
+                    </label>
+                    <input id="input-email" class="form__input-email" placeholder="Twój E-mail" type="text">
+                </div>
+                <div class="form__your-message">
+                    <label for="textarea-message">
+                        <svg class="form__message-icon">
+                            <use xlink:href="img/sprite.svg#icon-message"></use>
+                        </svg>
+                    </label>
+                    <textarea id="textarea-message" placeholder="Twoja Wiadomość"  class="form__textarea-message" name="" ></textarea>
+                </div>
+                <div class="form__btn-send">Wyślij</div>
+            </form>
+
         </div>
     </div>
 
-        <script src="./JS/contact-page.js"></script>
+    <script src="./JS/contact-page.js"></script>
 </body>
 
 </html>

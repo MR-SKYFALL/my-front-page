@@ -43,6 +43,7 @@ body {
           align-items: center;
   background-repeat: no-repeat;
   position: relative;
+  min-height: 100vh;
 }
 
 @media only screen and (max-width: 84.375em) {
@@ -698,16 +699,429 @@ body {
   border-radius: 10px;
 }
 
-.contact-element {
-  -ms-grid-column: 1;
-  -ms-grid-column-span: 6;
-  grid-column: 1/7;
-  -ms-grid-row: 1;
-  -ms-grid-row-span: 2;
-  grid-row: 1/3;
-  background-color: rgba(255, 255, 255, 0.6);
+.contact {
+  width: 60vw;
+  height: 700px;
+  font-family: 'Segoe UI';
+  color: #2B6F71;
+  z-index: 2;
+  position: relative;
+  -webkit-backface-visibility: hidden;
+          backface-visibility: hidden;
+  -webkit-transition: all .5s;
+  transition: all .5s;
+  -webkit-perspective: 150rem;
+          perspective: 150rem;
+  -moz-perspective: 150rem;
+}
+
+.contact__side {
+  -webkit-backface-visibility: hidden;
+          backface-visibility: hidden;
+  -webkit-transition: all .5s;
+  transition: all .5s;
+  overflow: hidden;
+}
+
+.contact__front {
+  background-color: rgba(255, 255, 255, 0.9);
+  position: absolute;
+  top: 0;
+  left: 0;
   width: 100%;
   height: 100%;
+}
+
+.contact__back {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  -webkit-transform: rotateY(180deg);
+          transform: rotateY(180deg);
+  background-color: rgba(255, 255, 255, 0.9);
+}
+
+.contact__header {
+  margin-top: 6rem;
+  font-size: 6rem;
+  font-weight: normal;
+  text-align: center;
+}
+
+.contact__info {
+  font-size: 4rem;
+  margin-left: 5rem;
+  margin-top: 8rem;
+}
+
+.contact__info p {
+  margin: 2rem;
+  margin-top: 5rem;
+}
+
+.contact__info p .email {
+  position: relative;
+}
+
+.contact__info p .email, .contact__info p .email:link, .contact__info p .email:visited {
+  text-decoration: none;
+  color: inherit;
+}
+
+.contact__info p .email::before {
+  content: "";
+  background-color: #2B6F71;
+  position: absolute;
+  width: 0%;
+  height: 2px;
+  top: 102%;
+  left: 50%;
+  -webkit-transition: all .5s;
+  transition: all .5s;
+  position: absolute;
+}
+
+.contact__info p .email:hover:before {
+  width: 100%;
+  left: 0;
+}
+
+.contact__info p .github {
+  position: relative;
+}
+
+.contact__info p .github, .contact__info p .github:link, .contact__info p .github:visited {
+  text-decoration: none;
+  color: inherit;
+}
+
+.contact__info p .github::before {
+  content: "";
+  background-color: #2B6F71;
+  position: absolute;
+  width: 0%;
+  height: 2px;
+  top: 102%;
+  left: 50%;
+  -webkit-transition: all .5s;
+  transition: all .5s;
+  position: absolute;
+}
+
+.contact__info p .github:hover:before {
+  width: 100%;
+  left: 0;
+}
+
+.contact__btn {
+  background-color: #2B6F71;
+  display: block;
+  color: #fff;
+  font-size: 3rem;
+  padding: 2rem;
+  margin: 0 auto;
+  width: 300px;
+  text-align: center;
+  margin-top: 7rem;
+  -webkit-transition: all .2s;
+  transition: all .2s;
+  cursor: pointer;
+}
+
+.contact__btn:hover {
+  -webkit-box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.9);
+          box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.9);
+  -webkit-transform: translateY(-5px);
+          transform: translateY(-5px);
+}
+
+.contact__header-back {
+  margin-top: 2rem;
+  font-size: 4rem;
+  font-weight: normal;
+  text-align: center;
+}
+
+.contact__back-icon {
+  position: absolute;
+  width: 50px;
+  height: 50px;
+  top: 20px;
+  right: 60px;
+  fill: #F99059;
+  -webkit-transition: all .5s;
+  transition: all .5s;
+  cursor: pointer;
+}
+
+.contact__back-icon:hover {
+  -webkit-transform: scale(1.1) translateY(-10px);
+          transform: scale(1.1) translateY(-10px);
+}
+
+.form {
+  margin: 0 auto;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  width: 60%;
+}
+
+.form__your-name-surname {
+  width: 90%;
+  height: 100px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: end;
+      -ms-flex-align: end;
+          align-items: flex-end;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+  position: relative;
+}
+
+.form__your-name-surname::before {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 2px;
+  margin-top: 5px;
+  background-color: #2B6F71;
+}
+
+.form__your-name-surname:focus-within::before {
+  background: #34a4ff;
+}
+
+.form__user-icon {
+  width: 50px;
+  height: 50px;
+  fill: #F99059;
+  cursor: pointer;
+}
+
+.form__input-name-surname {
+  margin-bottom: 2px;
+  margin-left: 20px;
+  background-color: rgba(0, 0, 0, 0);
+  border: none;
+  width: 100%;
+  font-size: 30px;
+  font-weight: 100;
+  color: #2B6F71;
+  outline: none;
+}
+
+.form__input-name-surname::-webkit-input-placeholder {
+  font-family: 'Segoe UI';
+  font-weight: 100;
+  font-size: 25px;
+  color: #2B6F71;
+}
+
+.form__input-name-surname:-ms-input-placeholder {
+  font-family: 'Segoe UI';
+  font-weight: 100;
+  font-size: 25px;
+  color: #2B6F71;
+}
+
+.form__input-name-surname::-ms-input-placeholder {
+  font-family: 'Segoe UI';
+  font-weight: 100;
+  font-size: 25px;
+  color: #2B6F71;
+}
+
+.form__input-name-surname::placeholder {
+  font-family: 'Segoe UI';
+  font-weight: 100;
+  font-size: 25px;
+  color: #2B6F71;
+}
+
+.form__your-email {
+  width: 90%;
+  height: 100px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: end;
+      -ms-flex-align: end;
+          align-items: flex-end;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+  position: relative;
+}
+
+.form__your-email::before {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 2px;
+  margin-top: 5px;
+  background-color: #2B6F71;
+}
+
+.form__your-email:focus-within::before {
+  background: #34a4ff;
+}
+
+.form__email-icon {
+  width: 50px;
+  height: 50px;
+  fill: #F99059;
+  cursor: pointer;
+}
+
+.form__input-email {
+  margin-bottom: 2px;
+  margin-left: 20px;
+  background-color: rgba(0, 0, 0, 0);
+  border: none;
+  width: 100%;
+  font-size: 30px;
+  font-weight: 100;
+  color: #2B6F71;
+  outline: none;
+}
+
+.form__input-email::-webkit-input-placeholder {
+  font-family: 'Segoe UI';
+  font-weight: 100;
+  font-size: 25px;
+  color: #2B6F71;
+}
+
+.form__input-email:-ms-input-placeholder {
+  font-family: 'Segoe UI';
+  font-weight: 100;
+  font-size: 25px;
+  color: #2B6F71;
+}
+
+.form__input-email::-ms-input-placeholder {
+  font-family: 'Segoe UI';
+  font-weight: 100;
+  font-size: 25px;
+  color: #2B6F71;
+}
+
+.form__input-email::placeholder {
+  font-family: 'Segoe UI';
+  font-weight: 100;
+  font-size: 25px;
+  color: #2B6F71;
+}
+
+.form__your-message {
+  margin-top: 15px;
+  width: 90%;
+  height: 300px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+  position: relative;
+}
+
+.form__your-message::before {
+  content: "";
+  bottom: 0;
+  position: absolute;
+  width: 100%;
+  height: 2px;
+  margin-top: 5px;
+  background-color: #2B6F71;
+}
+
+.form__your-message:focus-within::before {
+  background: #34a4ff;
+}
+
+.form__message-icon {
+  width: 50px;
+  height: 50px;
+  fill: #F99059;
+  cursor: pointer;
+}
+
+.form__textarea-message {
+  margin-bottom: 2px;
+  margin-left: 20px;
+  background-color: rgba(0, 0, 0, 0);
+  border: none;
+  height: 100%;
+  width: 100%;
+  font-size: 23px;
+  font-weight: 100;
+  color: #2B6F71;
+  outline: none;
+  resize: none;
+}
+
+.form__textarea-message::-webkit-input-placeholder {
+  font-family: 'Segoe UI';
+  font-weight: 100;
+  font-size: 25px;
+  color: #2B6F71;
+}
+
+.form__textarea-message:-ms-input-placeholder {
+  font-family: 'Segoe UI';
+  font-weight: 100;
+  font-size: 25px;
+  color: #2B6F71;
+}
+
+.form__textarea-message::-ms-input-placeholder {
+  font-family: 'Segoe UI';
+  font-weight: 100;
+  font-size: 25px;
+  color: #2B6F71;
+}
+
+.form__textarea-message::placeholder {
+  font-family: 'Segoe UI';
+  font-weight: 100;
+  font-size: 25px;
+  color: #2B6F71;
+}
+
+.form__btn-send {
+  background-color: #2B6F71;
+  color: #fff;
+  font-size: 2.4rem;
+  padding: 1rem 8rem;
+  margin-top: 3rem;
+  border-radius: 10px;
+  cursor: pointer;
+  -webkit-transition: all .2s;
+  transition: all .2s;
+}
+
+.form__btn-send:hover {
+  -webkit-box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.9);
+          box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.9);
+  -webkit-transform: translateY(-5px);
+          transform: translateY(-5px);
 }
 
 .animation-rotate-card-front {
