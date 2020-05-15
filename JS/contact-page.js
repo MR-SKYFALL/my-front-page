@@ -3,10 +3,10 @@ function open_nav_action(nav_bar) {
     document.querySelector(".menu-js").classList.remove("animation-close-menu");
     document.querySelector(".menu-js").classList.add("animation-open-menu");
 
-    if (document.querySelector('html').clientWidth > 700) {
+    if (document.querySelector('html').clientWidth > 850) {
         document.querySelector(".contact").classList.add("animation-center-cards-after-open-menu");
     }
-    if (document.querySelector('html').clientWidth < 450) {
+    if (document.querySelector('html').clientWidth < 850) {
         nav_bar.classList.add("animate-open-navbar-small-device");
     }
     else {

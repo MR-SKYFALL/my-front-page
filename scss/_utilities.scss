@@ -9,7 +9,9 @@
 .animation-open-navbar {
     width: var(--menu-open-width) !important;
 }
-
+.animation-open-navbar-full-width {
+    width: 100vw !important;
+}
 .animate-open-navbar-small-device {
     height: 500px !important;
 }

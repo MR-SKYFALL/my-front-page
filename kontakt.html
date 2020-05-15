@@ -15,10 +15,10 @@
 
     </div>
 
-    <nav class="navbar navbar-js">
+    <nav class="navbar navbar-contact-RWD navbar-js">
         <input type="checkbox" class="hamburger__checkbox" id="toggle-nav">
         <label for="toggle-nav">
-            <div class="hamburger hamburger-js">
+            <div class="hamburger hamburger-contact-RWD hamburger-js">
                 <div class="hamburger__line hamburger__line--1 hamburger__line--1-js"></div>
                 <div class="hamburger__line hamburger__line--2 hamburger__line--2-js"></div>
                 <div class="hamburger__line hamburger__line--3 hamburger__line--3-js"></div>
@@ -46,13 +46,36 @@
         <div class="contact__front contact__side contact__front-js ">
             <h1 class="contact__header">Kontakt</h1>
             <div class="contact__info">
-                <p>Imię i Nazwisko: Dawid Matras</p>
-                <p>E-mail: <a class="email" href="mailto:dawid.matras75@gmail.com">dawid.matras75@gmail.com</a></p>
-                <p>GitHub: <a class="github" target="_blank"
-                        href="https://github.com/MR-SKYFALL?tab=repositories">https://github.com/MR-SKYFALL</a> </p>
+                <div class="contact__name-surname contact__info-item">
+                    <div class="contact__name-surname-title">
+                        Imię i Nazwisko:
+                    </div>
+                     <div class="contact__name-surname-data">
+                         Dawid Matras
+                     </div>
+                </div>
+                <div class="contact__email contact__info-item">
+                    <div class="contact__email-title">
+                        E-mail:
+                    </div>
+                    <div class="contact__email-data">
+                        <a class="contact__email-link" href="mailto:dawid.matras75@gmail.com">dawid.matras75@gmail.com</a>
+                    
+                        <svg class="contact__email-copy-icon" data-clipboard-text="dawid.matras75@gmail.com">
+                            <use xlink:href="img/sprite.svg#icon-content_copy"></use>
+                        </svg>
+                    </div>
+                        
+                </div>
+                <div class="contact__github contact__info-item">
+                    <div class="contact__github-title">
+                        GitHub: 
+                    </div>
+                    <a class="contact__github-link" target="_blank"
+                        href="https://github.com/MR-SKYFALL?tab=repositories">https://github.com/MR-SKYFALL</a>
+                </div>
             </div>
             <div class="contact__btn contact__btn-js">Napisz do mnie</div>
-            <input type="checkbox" class="contact__switch">
         </div>
         <div class="contact__back contact__side contact__back-js ">
             <h1 class="contact__header-back">Napisz do mnie</h1>
@@ -66,7 +89,7 @@
                             <use xlink:href="img/sprite.svg#icon-user-tie"></use>
                         </svg>
                     </label>
-                    <input id="name-surname" class="form__input-name-surname" placeholder="Twoje Imię i Nazwisko"
+                    <input id="name-surname" class="form__input-name-surname" placeholder="Imię i Nazwisko"
                         type="text">
 
                 </div>
@@ -76,7 +99,7 @@
                             <use xlink:href="img/sprite.svg#icon-mail"></use>
                         </svg>
                     </label>
-                    <input id="input-email" class="form__input-email" placeholder="Twój E-mail" type="text">
+                    <input id="input-email" class="form__input-email" placeholder="E-mail" type="text">
                 </div>
                 <div class="form__your-message">
                     <label for="textarea-message">
@@ -92,7 +115,7 @@
 
         </div>
     </div>
-
+    <script src="./JS/clipboard.min.js"></script>
     <script src="./JS/contact-page.js"></script>
 </body>
 

@@ -91,7 +91,7 @@
         padding-top: 10px;
 
         div {
-            font-family: 'Segoe UI';
+            font-family: $basic-font;
             font-weight: bold;
             color: #000;
             text-align: center;
@@ -192,7 +192,7 @@
             flex-direction: column;
 
             transform: rotateY(180deg);
-            background-color: rgba($color: #fff, $alpha: 0.6)
+            background-color: rgba($color: #fff, $alpha: 0.8)
         }
     }
 
@@ -294,7 +294,7 @@
         font-size: 3rem;
         color: $color-primary-green;
         text-transform: uppercase;
-        font-family: 'Segoe UI';
+        font-family: $basic-font;
     }
 
     &__link {
@@ -374,9 +374,12 @@
 
     &__about {
 
-        font-family: 'Segoe UI';
+        font-family: $basic-font;
+        height: 98%;
         font-size: 2rem;
         margin: 1rem;
+        margin-top: 0;
+        overflow-y: auto;
     }
 
 }
