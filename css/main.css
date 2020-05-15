@@ -3,8 +3,6 @@
   --menu-open-width: 400px;
   --menu-close-width: 70px;
   --basic-transition-time: .5s;
-  --pacman-eat-1: 0%;
-  --pacman-eat-2: 1%;
 }
 
 @media only screen and (max-width: 43.75em) {
@@ -29,6 +27,7 @@ html {
 }
 
 body {
+  font-family: "Segoe UI";
   background-image: url("./../img/architectural-design-architecture-buildings-city-374811.jpg");
   background-size: cover;
   overflow: hidden;
@@ -702,14 +701,13 @@ body {
 .contact {
   width: 60vw;
   height: 700px;
-  font-family: 'Segoe UI';
   color: #2B6F71;
   z-index: 2;
   position: relative;
   -webkit-backface-visibility: hidden;
           backface-visibility: hidden;
-  -webkit-transition: all .5s;
-  transition: all .5s;
+  -webkit-transition: all 0.5s;
+  transition: all 0.5s;
   -webkit-perspective: 150rem;
           perspective: 150rem;
   -moz-perspective: 150rem;
@@ -718,8 +716,8 @@ body {
 .contact__side {
   -webkit-backface-visibility: hidden;
           backface-visibility: hidden;
-  -webkit-transition: all .5s;
-  transition: all .5s;
+  -webkit-transition: all 0.5s;
+  transition: all 0.5s;
   overflow: hidden;
 }
 
@@ -778,8 +776,8 @@ body {
   height: 2px;
   top: 102%;
   left: 50%;
-  -webkit-transition: all .5s;
-  transition: all .5s;
+  -webkit-transition: all 0.5s;
+  transition: all 0.5s;
   position: absolute;
 }
 
@@ -805,8 +803,8 @@ body {
   height: 2px;
   top: 102%;
   left: 50%;
-  -webkit-transition: all .5s;
-  transition: all .5s;
+  -webkit-transition: all 0.5s;
+  transition: all 0.5s;
   position: absolute;
 }
 
@@ -851,8 +849,8 @@ body {
   top: 20px;
   right: 60px;
   fill: #F99059;
-  -webkit-transition: all .5s;
-  transition: all .5s;
+  -webkit-transition: all 0.5s;
+  transition: all 0.5s;
   cursor: pointer;
 }
 

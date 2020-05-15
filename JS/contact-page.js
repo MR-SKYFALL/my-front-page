@@ -54,8 +54,10 @@ document.addEventListener('DOMContentLoaded', () => {
         // var hamburger = document.querySelector(".hamburger-js");
         var navbar = document.querySelector(".navbar-js");
         var input_checkbox = document.querySelector("#toggle-nav");
-        input_checkbox.checked = false;
-        close_nav_action(navbar);
+        if (input_checkbox.checked === true) {
+            input_checkbox.checked = false;
+            close_nav_action(navbar);
+        }
 
     })
 

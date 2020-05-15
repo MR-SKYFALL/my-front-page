@@ -10,14 +10,21 @@ $bp-large: 65.625em; // 1050px
 $bp-medium: 43.75em; //700px
 $bp-small: 28.125em; // 450px
 
+//GLOBAL ELEMENT
+
+$basic-transition-time: .5s;
+$basic-font: 'Segoe UI';
+
+$color-primary-green: #2B6F71;
+$color-secondary-orange: #F99059;
+
+
 :root {
     --my-gap: 60px;
     --menu-open-width: 400px;
     --menu-close-width: 70px;
     --basic-transition-time: .5s;
 
-    --pacman-eat-1: 0%;
-    --pacman-eat-2: 1%;
 
 
     @media only screen and (max-width: $bp-medium) {
@@ -41,6 +48,7 @@ html {
 }
 
 body {
+    font-family: $basic-font;
     background-image: url("./../img/architectural-design-architecture-buildings-city-374811.jpg");
     background-size: cover;
     overflow: hidden;
@@ -50,7 +58,7 @@ body {
     background-repeat: no-repeat;
     position: relative;
     // width: 100vw;
-     min-height: 100vh;
+    min-height: 100vh;
 
     @media only screen and (max-width: $bp-largest) {
         overflow-y: auto;
