@@ -6,6 +6,7 @@
     transform: rotateY(0);
 }
 
+//navbar
 .animation-open-navbar {
     width: var(--menu-open-width) !important;
 }
@@ -19,8 +20,6 @@
 .animation-center-cards-after-open-menu {
     margin-left: var(--menu-open-width) !important;
 }
-
-
 .animation-open-menu {
     opacity: 1 !important;
     animation: animation-keyframes-open-menu .9s ease-out .2s;
@@ -31,6 +30,8 @@
     // transform: translateX(-30rem);
     animation: animation-keyframes-close-menu var(--basic-transition-time);
 }
+
+//card animation
 
 @keyframes animation-printer-card {
     0%{

@@ -17,7 +17,7 @@ function open_nav_action(nav_bar) {
     document.querySelector(".menu-js").classList.remove("animation-close-menu");
     document.querySelector(".menu-js").classList.add("animation-open-menu");
 
-    if (document.querySelector('html').clientWidth > 850) {
+    if (document.querySelector('html').clientWidth >= 850) { //rwd
         document.querySelector(".contact").classList.add("animation-center-cards-after-open-menu");
     }
     if (document.querySelector('html').clientWidth < 850) {
@@ -35,8 +35,7 @@ function close_nav_action(nav_bar) {
     document.querySelector(".contact").classList.remove("animation-center-cards-after-open-menu");
     nav_bar.classList.remove("animate-open-navbar-small-device");
     nav_bar.classList.remove("animation-open-navbar");
-    // var input_checkbox = document.querySelector("#toggle-nav");
-    // input_checkbox.checked = false;
+ 
 }
 document.addEventListener('DOMContentLoaded', () => {
 

@@ -32,7 +32,7 @@
             </div>
             <div class="menu__line"></div>
             <div class="menu__item">
-                <a href="./kontakt.html">Kontakt</a>
+                <a href="./kontakt.php">Kontakt</a>
             </div>
             <div class="menu__line"></div>
             <div class="menu__item">
@@ -83,14 +83,15 @@
             <svg class="contact__back-icon contact__back-icon-js">
                 <use xlink:href="img/sprite.svg#icon-back"></use>
             </svg>
-            <form class="form" action="">
+
+            <form class="form" action="./php/send.php" method="POST">
                 <div class="form__your-name-surname">
                     <label for="name-surname">
                         <svg class="form__user-icon">
                             <use xlink:href="img/sprite.svg#icon-user-tie"></use>
                         </svg>
                     </label>
-                    <input id="name-surname" class="form__input-name-surname" placeholder="Imię i Nazwisko"
+                    <input id="name-surname" name="name_surname" class="form__input-name-surname" placeholder="<?php echo $_SESSION['name_surname_error'] ?>"
                         type="text">
 
                 </div>
@@ -100,7 +101,7 @@
                             <use xlink:href="img/sprite.svg#icon-mail"></use>
                         </svg>
                     </label>
-                    <input id="input-email" class="form__input-email" placeholder="E-mail" type="text">
+                    <input id="input-email" name="email" class="form__input-email" placeholder="E-mail" type="text">
                 </div>
                 <div class="form__your-message">
                     <label for="textarea-message">
@@ -108,10 +109,10 @@
                             <use xlink:href="img/sprite.svg#icon-message"></use>
                         </svg>
                     </label>
-                    <textarea id="textarea-message" placeholder="Twoja Wiadomość" class="form__textarea-message"
+                    <textarea id="textarea-message" name="message" placeholder="Twoja Wiadomość" class="form__textarea-message"
                         name=""></textarea>
                 </div>
-                <div class="form__btn-send">Wyślij</div>
+                <button type="submit" class="form__btn-send">Wyślij</button>
             </form>
 
         </div>
