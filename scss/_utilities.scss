@@ -31,6 +31,9 @@
     animation: animation-keyframes-close-menu var(--basic-transition-time);
 }
 
+.show_mail_send_info {
+    opacity: 1;
+}
 //card animation
 
 @keyframes animation-printer-card {

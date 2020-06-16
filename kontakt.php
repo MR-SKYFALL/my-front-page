@@ -1,3 +1,36 @@
+<?php
+
+session_start();
+if(isset($_SESSION['non-rotate-card']) && $_SESSION['non-rotate-card'] === true)
+{
+    $is_need_rotate_front = " animation-rotate-card-front";
+    $is_need_rotate_back = " animation-rotate-card-back";
+}
+else
+{
+    $is_need_rotate_front = "";
+    $is_need_rotate_back = ""; 
+}
+
+if( isset($_SESSION['show-mail-send-info']) && $_SESSION['show-mail-send-info'] === true)
+{
+    $class_correct_send_show = "show_mail_send_info";
+    
+}
+else
+{
+    $class_correct_send_show = "";
+}
+
+// $session_time = 3; // in seconds. After this time form is cleaned
+// if (isset($_SESSION['LAST_ACTIVITY']) && (time() - $_SESSION['LAST_ACTIVITY'] > $session_time)) { 
+//     // request 30 minates ago
+//     session_destroy();
+//     session_unset();
+// }
+// $_SESSION['LAST_ACTIVITY'] = time();
+?>
+
 <html lang="pl">
 
 <head>
@@ -44,7 +77,7 @@
 
 
     <div class="contact">
-        <div class="contact__front contact__side contact__front-js ">
+        <div class="contact__front contact__side contact__front-js <?php  echo $is_need_rotate_front ?>">
             <h1 class="contact__header">Kontakt</h1>
             <div class="contact__info">
                 <div class="contact__name-surname contact__info-item">
@@ -80,11 +113,12 @@
         </div>
 
 
-        <div class="contact__back contact__side contact__back-js ">
+        <div class="contact__back contact__side contact__back-js <?php echo $is_need_rotate_back ?>">
             <h1 class="contact__header-back">Napisz do mnie</h1>
-            <svg class="contact__back-icon contact__back-icon-js">
-                <use xlink:href="img/sprite.svg#icon-back"></use>
-            </svg>
+                <svg class="contact__back-icon contact__back-icon-js">
+                    <use xlink:href="img/sprite.svg#icon-back"></use>
+                </svg>
+
 
             <form class="form" action="./php/send.php" method="POST">
                 <div class="form__your-name-surname">
@@ -93,9 +127,9 @@
                             <use xlink:href="img/sprite.svg#icon-user-tie"></use>
                         </svg>
                     </label>
-                    <input id="name-surname" name="name_surname" class="form__input-name-surname" placeholder="Imię i Nazwisko" type="text">
+                    <input id="name-surname" value="<?php echo $_SESSION['name_surname'] ?>" name="name_surname" class="form__input-name-surname" placeholder="Imię i Nazwisko" type="text">
                     <div class="form__underline-name-surname underline-js "></div>
-                    <div class="form__name-surname-error errors-js"></div>
+                    <div class="form__name-surname-error errors-js"><?php echo $_SESSION['name_surname_error'] ?></div>
                 </div>
                 <div class="form__your-email">
                     <label for="input-email">
@@ -103,9 +137,9 @@
                             <use xlink:href="img/sprite.svg#icon-mail"></use>
                         </svg>
                     </label>
-                    <input id="input-email" name="email" class="form__input-email" placeholder="E-mail" type="text">
+                    <input id="input-email"  value="<?php echo $_SESSION['email'] ?>" name="email" class="form__input-email" placeholder="E-mail" type="text">
                     <div class="form__underline-email underline-js"></div>
-                    <div class="form__email-error errors-js">test email error</div>
+                    <div class="form__email-error errors-js"><?php echo $_SESSION['email_error'] ?></div>
                 </div>
                 <div class="form__your-message">
                     <label for="textarea-message">
@@ -113,14 +147,17 @@
                             <use xlink:href="img/sprite.svg#icon-message"></use>
                         </svg>
                     </label>
-                    <textarea id="textarea-message" name="message" placeholder="Twoja Wiadomość" class="form__textarea-message"
-                        name=""></textarea>
+                    <textarea id="textarea-message"   name="message" placeholder="Twoja Wiadomość" class="form__textarea-message"
+                        ><?php echo $_SESSION['message'] ?></textarea>
                         <div class="form__underline-message underline-js"></div>
-                    <div class="form__message-error errors-js"></div>
+                    <div class="form__message-error errors-js"><?php echo $_SESSION['message_error'] ?></div>
                 </div>
                 <button type="submit" class="form__btn-send">Wyślij</button>
-            </form>
 
+                
+                <div class="correct-mail-send correct-mail-send-js <?php echo $class_correct_send_show ?>">Twoja wiadomość została wysłana.</div>
+            </form>
+            
         </div>
     </div>
     

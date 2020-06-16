@@ -41,19 +41,21 @@ document.addEventListener('DOMContentLoaded', () => {
 
     var send_button = document.querySelector(".contact__btn-js"); // action for send to me button
 
-    document.querySelector(".contact__front-js").classList.add("animation-rotate-card-front");
-        document.querySelector(".contact__back-js").classList.add("animation-rotate-card-back"); // default rotate
+    // document.querySelector(".contact__front-js").classList.add("animation-rotate-card-front");
+    //     document.querySelector(".contact__back-js").classList.add("animation-rotate-card-back"); //! default rotate
 
     send_button.addEventListener("click", function () {
         document.querySelector(".contact__front-js").classList.add("animation-rotate-card-front");
         document.querySelector(".contact__back-js").classList.add("animation-rotate-card-back");
     })
 
-    var send_button = document.querySelector(".contact__back-icon-js"); // action for back to contact
+    var back_button = document.querySelector(".contact__back-icon-js"); // action for back to contact
 
-    send_button.addEventListener("click", function () {
+    back_button.addEventListener("click", function () {
         document.querySelector(".contact__front-js").classList.remove("animation-rotate-card-front");
         document.querySelector(".contact__back-js").classList.remove("animation-rotate-card-back");
+        document.querySelector(".correct-mail-send-js").classList.remove("show_mail_send_info");
+        
     })
 
 
@@ -102,7 +104,6 @@ document.addEventListener('DOMContentLoaded', () => {
         }
         else
         {
-            // simple_error_element.parentElement.setAttribute('data-before', 'background-color: #2B6F71;');
             simple_error_element.parentElement.querySelector(".underline-js").style = "background-color: #2B6F71;";
         }
     });
