@@ -5,7 +5,7 @@
     <meta content="width=device-width, initial-scale=1" name="viewport" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Dawid Matras</title>
-    <link rel="stylesheet" <?php echo 'href="css/main.css"' ?>>
+    <link rel="stylesheet" href="css/main.css">
     <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
     
 </head>
@@ -32,7 +32,7 @@
             </div>
             <div class="menu__line"></div>
             <div class="menu__item">
-                <a href="./kontakt.php">Kontakt</a>
+                <a href="./kontakt.html">Kontakt</a>
             </div>
             <div class="menu__line"></div>
             <div class="menu__item">
@@ -78,14 +78,11 @@
             </div>
             <div class="contact__btn contact__btn-js">Napisz do mnie</div>
         </div>
-
-
         <div class="contact__back contact__side contact__back-js ">
             <h1 class="contact__header-back">Napisz do mnie</h1>
             <svg class="contact__back-icon contact__back-icon-js">
                 <use xlink:href="img/sprite.svg#icon-back"></use>
             </svg>
-
             <form class="form" action="./php/send.php" method="POST">
                 <div class="form__your-name-surname">
                     <label for="name-surname">
@@ -93,9 +90,9 @@
                             <use xlink:href="img/sprite.svg#icon-user-tie"></use>
                         </svg>
                     </label>
-                    <input id="name-surname" name="name_surname" class="form__input-name-surname" placeholder="Imię i Nazwisko" type="text">
-                    <div class="form__underline-name-surname underline-js "></div>
-                    <div class="form__name-surname-error errors-js"></div>
+                    <input id="name-surname" name="name_surname" class="form__input-name-surname" placeholder="Imię i Nazwisko"
+                        type="text">
+
                 </div>
                 <div class="form__your-email">
                     <label for="input-email">
@@ -104,8 +101,6 @@
                         </svg>
                     </label>
                     <input id="input-email" name="email" class="form__input-email" placeholder="E-mail" type="text">
-                    <div class="form__underline-email underline-js"></div>
-                    <div class="form__email-error errors-js">test email error</div>
                 </div>
                 <div class="form__your-message">
                     <label for="textarea-message">
@@ -115,10 +110,8 @@
                     </label>
                     <textarea id="textarea-message" name="message" placeholder="Twoja Wiadomość" class="form__textarea-message"
                         name=""></textarea>
-                        <div class="form__underline-message underline-js"></div>
-                    <div class="form__message-error errors-js"></div>
                 </div>
-                <button type="submit" class="form__btn-send">Wyślij</button>
+                <div class="form__btn-send">Wyślij</div>
             </form>
 
         </div>

@@ -41,6 +41,9 @@ document.addEventListener('DOMContentLoaded', () => {
 
     var send_button = document.querySelector(".contact__btn-js"); // action for send to me button
 
+    document.querySelector(".contact__front-js").classList.add("animation-rotate-card-front");
+        document.querySelector(".contact__back-js").classList.add("animation-rotate-card-back"); // default rotate
+
     send_button.addEventListener("click", function () {
         document.querySelector(".contact__front-js").classList.add("animation-rotate-card-front");
         document.querySelector(".contact__back-js").classList.add("animation-rotate-card-back");
@@ -90,4 +93,17 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
     })
+
+    var errors_elements = document.querySelectorAll(".errors-js");
+    errors_elements.forEach(simple_error_element => {
+        if(simple_error_element.innerHTML != "")
+        {
+            simple_error_element.parentElement.querySelector(".underline-js").style = "background-color: red;";
+        }
+        else
+        {
+            // simple_error_element.parentElement.setAttribute('data-before', 'background-color: #2B6F71;');
+            simple_error_element.parentElement.querySelector(".underline-js").style = "background-color: #2B6F71;";
+        }
+    });
 })

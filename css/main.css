@@ -1096,8 +1096,7 @@ body {
   position: relative;
 }
 
-.form__your-name-surname::before {
-  content: "";
+.form__underline-name-surname {
   position: absolute;
   width: 100%;
   height: 2px;
@@ -1105,8 +1104,16 @@ body {
   background-color: #2B6F71;
 }
 
-.form__your-name-surname:focus-within::before {
-  background: #34a4ff;
+.form__name-surname-error {
+  position: absolute;
+  bottom: -30px;
+  left: 70px;
+  color: red;
+  font-size: 15px;
+}
+
+.form__your-name-surname:focus-within .form__underline-name-surname {
+  background: #34a4ff !important;
 }
 
 .form__user-icon {
@@ -1158,7 +1165,7 @@ body {
 
 .form__your-email {
   width: 90%;
-  height: 100px;
+  height: 85px;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -1171,8 +1178,7 @@ body {
   position: relative;
 }
 
-.form__your-email::before {
-  content: "";
+.form__underline-email {
   position: absolute;
   width: 100%;
   height: 2px;
@@ -1180,8 +1186,16 @@ body {
   background-color: #2B6F71;
 }
 
-.form__your-email:focus-within::before {
-  background: #34a4ff;
+.form__email-error {
+  position: absolute;
+  bottom: -30px;
+  left: 70px;
+  color: red;
+  font-size: 15px;
+}
+
+.form__your-email:focus-within .form__underline-email {
+  background: #34a4ff !important;
 }
 
 .form__email-icon {
@@ -1232,9 +1246,9 @@ body {
 }
 
 .form__your-message {
-  margin-top: 15px;
+  margin-top: 40px;
   width: 90%;
-  height: 300px;
+  height: 280px;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -1253,8 +1267,7 @@ body {
   }
 }
 
-.form__your-message::before {
-  content: "";
+.form__underline-message {
   bottom: 0;
   position: absolute;
   width: 100%;
@@ -1263,8 +1276,18 @@ body {
   background-color: #2B6F71;
 }
 
-.form__your-message:focus-within::before {
-  background: #34a4ff;
+.form__message-error {
+  position: absolute;
+  bottom: -30px;
+  left: 50%;
+  -webkit-transform: translate(-50%, 0%);
+          transform: translate(-50%, 0%);
+  color: red;
+  font-size: 15px;
+}
+
+.form__your-message:focus-within .form__underline-message {
+  background: #34a4ff !important;
 }
 
 .form__message-icon {
@@ -1321,7 +1344,7 @@ body {
   color: #fff;
   font-size: 2.4rem;
   padding: 1rem 8rem;
-  margin-top: 3rem;
+  margin-top: 5rem;
   border-radius: 10px;
   cursor: pointer;
   -webkit-transition: all .2s;

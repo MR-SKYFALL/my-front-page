@@ -231,86 +231,7 @@
                 }
         }
 
-        // &__email{
-        //         position: relative;
-
-        //         .email {
-        //                 position: relative;
-
-        //                 &,
-        //                 &:link,
-        //                 &:visited {
-        //                         text-decoration: none;
-        //                         color: inherit;
-        //                 }
-
-        //                 &::before {
-        //                         content: "";
-        //                         background-color: $color-primary-green;
-        //                         position: absolute;
-        //                         width: 0%;
-        //                         height: 2px;
-        //                         top: 102%;
-        //                         left: 50%;
-        //                         transition: all $basic-transition-time;
-        //                         position: absolute;
-
-        //                 }
-
-        //                 &:hover:before {
-        //                         width: 100%;
-        //                         left: 0;
-        //                 }
-        //         }
-        // }
-        // &__copy-mail-icon {
-        //         position: relative;
-        //         width: 30px;
-        //         height: 30px;
-        //         margin-left: 20px;
-        //         fill: $color-secondary-orange;
-        //         transition: all .2s;
-        //         cursor: pointer;
-
-        //         &:hover {
-        //                 transform: scale(1.2) translateY(-5px);
-        //         }
-        //         &:active {
-        //                 transform: scale(1.3) translateY(-15px)
-        //         }
-
-        // }
-        // &__github{
-
-        //         .github {
-        //                 position: relative;
-
-        //                 &,
-        //                 &:link,
-        //                 &:visited {
-        //                         text-decoration: none;
-        //                         color: inherit;
-        //                 }
-
-        //                 &::before {
-        //                         content: "";
-        //                         background-color: $color-primary-green;
-        //                         position: absolute;
-        //                         width: 0%;
-        //                         height: 2px;
-        //                         top: 102%;
-        //                         left: 50%;
-        //                         transition: all $basic-transition-time;
-        //                         position: absolute;
-
-        //                 }
-
-        //                 &:hover:before {
-        //                         width: 100%;
-        //                         left: 0;
-        //                 }
-        //         }
-        // }
+        
 
         &__btn {
                 background-color: $color-primary-green;
@@ -385,6 +306,7 @@
         flex-direction: column;
         align-items: center;
         width: 60%;
+
         @media only screen and (max-width: $bp-large-c) {
                 width: 80%;
                 
@@ -393,6 +315,8 @@
                 width: 95%;
                 
         }
+
+       
         
         //FIELD 1
         &__your-name-surname {
@@ -405,8 +329,7 @@
 
         }
 
-        &__your-name-surname::before {
-                content: "";
+        &__underline-name-surname{
                 position: absolute;
                 width: 100%;
                 height: 2px;
@@ -414,8 +337,16 @@
                 background-color: $color-primary-green;
         }
 
-        &__your-name-surname:focus-within::before {
-                background: rgb(52, 164, 255);
+        &__name-surname-error{
+                position: absolute;
+                bottom: -30px;
+                left: 70px;
+                color: $color-form-error;
+                font-size: $form-font-size;
+        }
+
+        &__your-name-surname:focus-within &__underline-name-surname {
+                background: rgb(52, 164, 255) !important;
 
         }
 
@@ -451,16 +382,15 @@
 
         &__your-email {
                 width: 90%;
-                height: 100px;
-                // background-color: red;
+                height: 85px;
                 display: flex;
                 align-items: flex-end;
                 justify-content: flex-start;
                 position: relative;
         }
 
-        &__your-email::before {
-                content: "";
+        &__underline-email
+        {
                 position: absolute;
                 width: 100%;
                 height: 2px;
@@ -468,8 +398,16 @@
                 background-color: $color-primary-green;
         }
 
-        &__your-email:focus-within::before {
-                background: rgb(52, 164, 255);
+        &__email-error{
+                position: absolute;
+                bottom: -30px;
+                left: 70px;
+                color: $color-form-error;
+                font-size: $form-font-size;
+        }
+
+        &__your-email:focus-within &__underline-email {
+                background: rgb(52, 164, 255) !important;
 
         }
 
@@ -503,9 +441,9 @@
         //FIELD 3 
 
         &__your-message {
-                margin-top: 15px;
+                margin-top: 40px;
                 width: 90%;
-                height: 300px;
+                height: 280px;
                 display: flex;
                 align-items: flex-start;
                 justify-content: flex-start;
@@ -516,8 +454,8 @@
 
         }
 
-        &__your-message::before {
-                content: "";
+
+        &__underline-message {
                 bottom: 0;
                 position: absolute;
                 width: 100%;
@@ -526,8 +464,17 @@
                 background-color: $color-primary-green;
         }
 
-        &__your-message:focus-within::before {
-                background: rgb(52, 164, 255);
+        &__message-error{
+                position: absolute;
+                bottom: -30px;
+                left: 50%;
+                transform: translate(-50%, 0%);
+                color: $color-form-error;
+                font-size: $form-font-size;
+        }
+
+        &__your-message:focus-within &__underline-message {
+                background: rgb(52, 164, 255) !important;
         }
 
         &__message-icon {
@@ -563,7 +510,7 @@
                 color: #fff;
                 font-size: 2.4rem;
                 padding: 1rem 8rem;
-                margin-top: 3rem;
+                margin-top: 5rem;
                 border-radius: 10px;
                 cursor: pointer;
                 transition: all .2s;
