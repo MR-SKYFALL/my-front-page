@@ -1,7 +1,15 @@
 <?php
 
 session_start();
-if(isset($_SESSION['non-rotate-card']) && $_SESSION['non-rotate-card'] === true)
+
+$session_time = 1; // in seconds. After this time form is cleaned
+if (isset($_SESSION['LAST_ACTIVITY']) && (time() - $_SESSION['LAST_ACTIVITY'] > $session_time)) {  // clean session after some seconds (when you refresh page data is cleaned after this time)
+    session_destroy();
+    session_unset();
+}
+$_SESSION['LAST_ACTIVITY'] = time();
+
+if( $_SESSION['non-rotate-card'] === true)
 {
     $is_need_rotate_front = " animation-rotate-card-front";
     $is_need_rotate_back = " animation-rotate-card-back";
@@ -12,9 +20,17 @@ else
     $is_need_rotate_back = ""; 
 }
 
-if( isset($_SESSION['show-mail-send-info']) && $_SESSION['show-mail-send-info'] === true)
+if( $_SESSION['show-mail-send-info'] === true)
 {
     $class_correct_send_show = "show_mail_send_info";
+    if($_SESSION['is_mail_correct_send']===true)
+    {
+        $is_correct_send_info = "Twoja wiadomość została wysłana.";
+    }
+    else
+    {
+        $is_correct_send_info = "Wystąpił błąd. Niestety twoja wiadomość nie została wysłana";
+    }
     
 }
 else
@@ -22,13 +38,8 @@ else
     $class_correct_send_show = "";
 }
 
-// $session_time = 3; // in seconds. After this time form is cleaned
-// if (isset($_SESSION['LAST_ACTIVITY']) && (time() - $_SESSION['LAST_ACTIVITY'] > $session_time)) { 
-//     // request 30 minates ago
-//     session_destroy();
-//     session_unset();
-// }
-// $_SESSION['LAST_ACTIVITY'] = time();
+
+
 ?>
 
 <html lang="pl">
@@ -48,7 +59,7 @@ else
     <div class="back-all-card back-all-card-js">
 
     </div>
-
+ 
     <nav class="navbar navbar-contact-RWD navbar-js">
         <input type="checkbox" class="hamburger__checkbox" id="toggle-nav">
         <label for="toggle-nav">
@@ -61,7 +72,7 @@ else
         <div class="menu menu-js ">
             <div class="menu__line"></div>
             <div class="menu__item">
-                <a href="./index.html">Strona Główna</a>
+                <a href="./index.html">Wykonane Projekty</a>
             </div>
             <div class="menu__line"></div>
             <div class="menu__item">
@@ -69,7 +80,7 @@ else
             </div>
             <div class="menu__line"></div>
             <div class="menu__item">
-                <a href="https://github.com/MR-SKYFALL?tab=repositories">Mój GitHub</a>
+                <a href="https://github.com/MR-SKYFALL?tab=repositories" target="_blank">Mój GitHub</a>
             </div>
             <div class="menu__line"></div>
         </div>
@@ -93,7 +104,7 @@ else
                         E-mail:
                     </div>
                     <div class="contact__email-data">
-                        <a class="contact__email-link" href="mailto:dawid.matras75@gmail.com">dawid.matras75@gmail.com</a>
+                        <a class="contact__email-link" href="mailto:dawid.matras75@gmail.com">  dawid.matras75@gmail.com</a>
                     
                         <svg class="contact__email-copy-icon copy-button-js" data-clipboard-action="copy" data-clipboard-text="dawid.matras75@gmail.com">
                             <use xlink:href="img/sprite.svg#icon-content_copy"></use>
@@ -147,15 +158,16 @@ else
                             <use xlink:href="img/sprite.svg#icon-message"></use>
                         </svg>
                     </label>
-                    <textarea id="textarea-message"   name="message" placeholder="Twoja Wiadomość" class="form__textarea-message"
+                    <textarea id="textarea-message"   name="message" placeholder="Twoja Wiadomość" class="form__textarea-message textarea-message-js"
                         ><?php echo $_SESSION['message'] ?></textarea>
                         <div class="form__underline-message underline-js"></div>
                     <div class="form__message-error errors-js"><?php echo $_SESSION['message_error'] ?></div>
+                    <div class="form__letter-counter letter-counter-js">0/1000</div>
                 </div>
                 <button type="submit" class="form__btn-send">Wyślij</button>
 
                 
-                <div class="correct-mail-send correct-mail-send-js <?php echo $class_correct_send_show ?>">Twoja wiadomość została wysłana.</div>
+                <div class="correct-mail-send correct-mail-send-js <?php echo $class_correct_send_show ?>"> <?php echo $is_correct_send_info ?> </div>
             </form>
             
         </div>

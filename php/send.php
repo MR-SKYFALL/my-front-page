@@ -5,7 +5,8 @@ $name_surname_regExp = "/^[A-z0-9\s]*$/";
 
  $connect = @ new mysqli($host, $db_user , $db_password,$db_name);
  if ($connect->errno) {
-     echo "wystapil blad" . $connect->errno . "----" . $connect->error;
+    // echo "wystapil blad" . $connect->errno . "----" . $connect->error;
+    echo  "error connect to server";
  }
  else
  {
@@ -78,10 +79,7 @@ $name_surname_regExp = "/^[A-z0-9\s]*$/";
         $_SESSION['name_surname'] = "";
         $_SESSION['email'] = "";
         $_SESSION['message'] = "";
-        $msg = "First line of text\nSecond line of text";
-
-        // use wordwrap() if lines are longer than 70 characters
-        $msg = wordwrap($msg,70);
+       
 
         // send email
         $to      = 'rmat28op.pl@gmail.com';
@@ -91,8 +89,10 @@ $name_surname_regExp = "/^[A-z0-9\s]*$/";
             'From' => "moje-portfolio@gmail.com",
             
         );
+
+        $_SESSION['is_mail_correct_send'] = false;
         
-        mail($to, $subject, $message, $headers);
+        $_SESSION['is_mail_correct_send'] =  mail($to, $subject, $message, $headers);
 
         header("Location:../kontakt.php");
     }
@@ -107,10 +107,6 @@ $name_surname_regExp = "/^[A-z0-9\s]*$/";
         $_SESSION['email'] = $email;
         $_SESSION['message'] = $message;
 
-
-        // $_SESSION['name_surname_error'] = "nie wolno liter";
-        // $_SESSION['email_error'] = "zly email";
-        // $_SESSION['message_error'] = "zla wiadomosc";
 
         header("Location:../kontakt.php");
     }

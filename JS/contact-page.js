@@ -37,12 +37,28 @@ function close_nav_action(nav_bar) {
     nav_bar.classList.remove("animation-open-navbar");
  
 }
+
+function refresh_letter_counter(user_message_textarea)
+{
+    let message_string = user_message_textarea.value;
+        let message_length = message_string.length;
+        document.querySelector(".letter-counter-js").innerHTML = `${message_length}/1000`
+        if(message_length>1000)
+        {
+            document.querySelector(".letter-counter-js").style = 'color:red;';
+        }
+        else
+        {
+            document.querySelector(".letter-counter-js").style = "";
+        }
+}
+
 document.addEventListener('DOMContentLoaded', () => {
 
     var send_button = document.querySelector(".contact__btn-js"); // action for send to me button
 
     // document.querySelector(".contact__front-js").classList.add("animation-rotate-card-front");
-    //     document.querySelector(".contact__back-js").classList.add("animation-rotate-card-back"); //! default rotate
+    // document.querySelector(".contact__back-js").classList.add("animation-rotate-card-back"); //! default rotate
 
     send_button.addEventListener("click", function () {
         document.querySelector(".contact__front-js").classList.add("animation-rotate-card-front");
@@ -96,7 +112,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     })
 
-    var errors_elements = document.querySelectorAll(".errors-js");
+    var errors_elements = document.querySelectorAll(".errors-js"); // form red underline when user make error
     errors_elements.forEach(simple_error_element => {
         if(simple_error_element.innerHTML != "")
         {
@@ -107,4 +123,12 @@ document.addEventListener('DOMContentLoaded', () => {
             simple_error_element.parentElement.querySelector(".underline-js").style = "background-color: #2B6F71;";
         }
     });
+
+
+    var user_message_textarea = document.querySelector(".textarea-message-js"); // letter counter 
+    refresh_letter_counter(user_message_textarea);
+    user_message_textarea.addEventListener("keyup", function(){
+        refresh_letter_counter(this);
+
+    })
 })
