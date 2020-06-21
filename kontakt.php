@@ -49,7 +49,7 @@ else
     <meta content="width=device-width, initial-scale=1" name="viewport" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Dawid Matras</title>
-    <link rel="stylesheet" <?php echo 'href="css/main.css"' ?>>
+    <link rel="stylesheet" <?php echo 'href="css/main2.css"' ?>>
     <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
     
 </head>

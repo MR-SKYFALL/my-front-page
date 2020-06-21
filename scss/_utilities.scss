@@ -8,6 +8,7 @@
 
 //navbar
 .animation-open-navbar {
+    
     width: var(--menu-open-width) !important;
 }
 .animation-open-navbar-full-width {
@@ -22,7 +23,7 @@
 }
 .animation-open-menu {
     opacity: 1 !important;
-    animation: animation-keyframes-open-menu .9s ease-out .2s;
+    // animation: animation-keyframes-open-menu .9s ease-out .2s;
     animation-fill-mode: backwards;
 }
 
@@ -194,6 +195,7 @@
 
 @keyframes animation-keyframes-open-menu {
     0% {
+        // overflow: hidden;
         opacity: 0;
         transform: translateX(-30rem);
     }
@@ -220,6 +222,7 @@
         transform: rotate(0deg);
         opacity: 1;
         transform: translate(1);
+        
     }
 }
 

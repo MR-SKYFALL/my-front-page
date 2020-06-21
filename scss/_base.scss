@@ -63,7 +63,7 @@ body {
     font-family: $basic-font;
     background-image: url("./../img/architectural-design-architecture-buildings-city-374811.jpg");
     background-size: cover;
-    overflow: hidden;
+    overflow-x: hidden;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -71,8 +71,10 @@ body {
     position: relative;
     // width: 100vw;
     min-height: 100vh;
+    width: 100vw;
 
     @media only screen and (max-width: $bp-largest) {
         overflow-y: auto;
     }
+    
 }
