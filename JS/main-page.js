@@ -49,7 +49,7 @@ function open_nav_action(nav_bar) {
     if (document.querySelector('html').clientWidth > 700) {
         document.querySelector(".container").classList.add("animation-center-cards-after-open-menu");
     }
-    if (document.querySelector('html').clientWidth < 450) {
+    if (document.querySelector('html').clientWidth <= 450) {
         nav_bar.classList.add("animate-open-navbar-small-device");
     }
     else {
