@@ -12,13 +12,13 @@ $bp-small: 28.125em; // 450px
 
 // BREAKPOINTS - contact site
 
-$bp-largest-c: 87.5em ; //1400px
-$bp-large-c: 68.75em ; //1100px
-$bp-medium-c: 62.5em ; //1000px
-$bp-small-c: 53.125em ; //800px
-$bp-smaller-c: 37.5em ; //600px
-$bp-smallest-c: 25em ; //400px
- 
+$bp-largest-c: 87.5em; //1400px
+$bp-large-c: 68.75em; //1100px
+$bp-medium-c: 62.5em; //1000px
+$bp-small-c: 53.125em; //800px
+$bp-smaller-c: 37.5em; //600px
+$bp-smallest-c: 25em; //400px
+
 
 //GLOBAL ELEMENT
 
@@ -67,6 +67,7 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
+    flex-direction: column;
     background-repeat: no-repeat;
     position: relative;
     // width: 100vw;
@@ -76,5 +77,5 @@ body {
     @media only screen and (max-width: $bp-largest) {
         overflow-y: auto;
     }
-    
+
 }

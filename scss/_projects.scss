@@ -5,8 +5,10 @@
     align-items: center;
     justify-content: center;
     flex-wrap: wrap;
-    width: 100%;
-    
+    // width: 100%;
+    // overflow-x: hidden;
+    transition: all .1s;
+
     margin-left: var(--menu-close-width);
     transition: all var(--basic-transition-time);
 
@@ -28,12 +30,22 @@
 
 }
 
+.title {
+    // width: 100%;
+    text-align: center;
+    font-size: 7rem;
+    color: white;
+    text-shadow: 10px 10px 10px black;
+    // margin-bottom: 10rem;
+    margin-top: auto 0;
+}
+
 .card {
 
     //perfect spin
     perspective: 150rem;
     -moz-perspective: 150rem;
-
+    // transition: all .1s;
     width: 300px;
     height: 300px;
     position: relative;
@@ -98,7 +110,7 @@
             align-items: center;
             height: 100%;
             width: 100%;
-            background-color: rgba( #fff,  0.6);
+            background-color: rgba(#fff, 0.6);
         }
 
         &-back {
@@ -207,7 +219,6 @@
         }
 
 
-
     }
 
     &__title {
@@ -216,6 +227,10 @@
         color: $color-primary-green;
         text-transform: uppercase;
         font-family: $basic-font;
+    }
+
+    &__dev-challenge {
+        // font-size: 3.5rem;
     }
 
     &__link {
@@ -247,11 +262,11 @@
         }
 
         &--printer:hover .card__printing-paper {
-            animation:  animation-printer-card 5s forwards;
+            animation: animation-printer-card 5s forwards;
             transition: all 5s;
             transform: translateY(160px);
-        
-            
+
+
         }
 
         &--printer:hover .card__printing-paper .line-1 {
@@ -265,6 +280,7 @@
         &--printer:hover .card__printing-paper .line-3 {
             animation: animation-printer-text-line-3 5s;
         }
+
         &--printer:hover .card__printing-paper .line-4 {
             animation: animation-printer-text-line-4 5s;
         }
