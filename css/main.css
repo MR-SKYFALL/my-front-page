@@ -294,6 +294,10 @@ body {
   pointer-events: none;
 }
 
+.card__icon-3-animation {
+  position: relative;
+}
+
 .card__icon-5-animation {
   position: relative;
 }
